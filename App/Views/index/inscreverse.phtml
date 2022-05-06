@@ -16,18 +16,26 @@
         <div class="row">
           <div class="col">
             
-            <form action="" method="post">
+            <form action="/registrar" method="post">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nome">
+                <input name="nome" value="<?= $this->view->valueCampos['nome']  ?>" type="text" class="form-control" placeholder="Nome">
               </div>
               
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="E-mail">
+                <input name="email" value="<?= $this->view->valueCampos['email']  ?>" type="text" class="form-control" placeholder="E-mail">
               </div>
 
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Senha">
+                <input name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Senha">
               </div>
+
+              <?php if(isset($this->view->usuarioExiste)) { ?>
+                <small class="lead text-danger">Usuario já Existe, tente utilizar outro e-mail</small>
+              <?php } ?>
+
+              <?php if(isset($this->view->camposInvalidos)) { ?>
+                <small class="lead text-danger">Houve um ero ao efetuar o cadastro, verifique se os campos estao preenchidos corretamente</small>
+              <?php } ?>
               
               <div class="mt-4 mb-4">
                 <small class="form-text">
