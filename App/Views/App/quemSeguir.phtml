@@ -56,55 +56,53 @@
 		</div>
 
 		<div class="col-md-6">
+			
 			<div class="row mb-2">
-				<div class="col tweetBox">
-					<form action="/tweet" method="post">
-						<textarea name="tweet" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-						
-						<div class="col mt-2 d-flex justify-content-end">
-							<button type="submit" class="btn btn-primary">Tweet</button>
+				<div class="col">
+					<div class="card">
+						<div class="card-body">
+							<form method="get" action="/quem_seguir">
+								<div class="input-group mb-3">
+									<input name="pesquisarPor" type="text" class="form-control" placeholder="Quem você está procurando?">
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="submit">Procurar</button>
+									</div>
+								</div>
+							</form>
 						</div>
-
-					</form>
+					</div>
 				</div>
 			</div>
 
-			<?php 
-			// echo '<pre>';
-			// print_r($this->view->tweets);
-			// echo '</pre>';
-			 ?>
-
-			<?php foreach ($this->view->tweets as $key => $value) {
-				# code...
-			 ?>
-			<div class="row tweet">
+			<?php foreach ($this->view->usuarioPesquisado as $key => $value) { ?>
+			<div class="row mb-2">
 				<div class="col">
-					<p><strong><?= $value['nome'] ?></strong> <small><span class="text text-muted">- <?= $value['data'] ?></span></small></p>
-					<p><?= $value['tweet'] ?></p>
+					<div class="card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-6">
+									<?= $value['nome'] ?>
+								</div>
+							
+								<div class="col-md-6 d-flex justify-content-end">
+									<div>
+										<?php if ($value['seguindo_sn'] != 1 ) { ?>
+										<a href="/acao?acao=seguir&id_usuario=<?= $value['id'] ?>" class="btn btn-success">Seguir</a>
+										<?php } ?>
 
-					<br />
-					<form>
-						<div class="col d-flex justify-content-end">
-							<button type="submit" class="btn btn-danger"><small>Remover</small></button>
+										<?php if ($value['seguindo_sn'] != 0 ) { ?>
+										<a href="/acao?acao=deixar_seguir&id_usuario=<?= $value['id'] ?>" class="btn btn-danger">Deixar de seguir</a>
+
+										<?php } ?>
+									</div>
+								</div>
+							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 			<?php } ?>
-			
-
 
 		</div>
-
-
-		<div class="col-md-3">
-			<div class="quemSeguir">
-				<span class="quemSeguirTitulo">Quem seguir</span><br />
-				<hr />
-				<a href="/quem_seguir" class="quemSeguirTxt">Procurar por pessoas conhecidas</a>
-			</div>
-		</div>
-
 	</div>
 </div>
