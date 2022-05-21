@@ -18,6 +18,15 @@ class AppController extends Action {
 
         $tweets = $tweet->getAll();
 
+        // Informaçoes do usuario
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+
+        $this->view->infoUsuario = $usuario->infoUsuario();
+        $this->view->totalTweets = $usuario->totalTweets();
+        $this->view->totalSeguindo = $usuario->totalSeguindo();
+        $this->view->totalSeguidores = $usuario->totalSeguidores();
+
         $this->view->tweets = $tweets;
 
         $this->render('timeline');
@@ -60,12 +69,16 @@ class AppController extends Action {
             $usuario->__set('id' , $_SESSION['id']);
 
             $usuarios = $usuario->getAll();
-
-            // echo '<pre>';
-            // print_r($usuarios);
-            // echo '</pre>';
-
         }
+
+        // Informaçoes do usuario
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+
+        $this->view->infoUsuario = $usuario->infoUsuario();
+        $this->view->totalTweets = $usuario->totalTweets();
+        $this->view->totalSeguindo = $usuario->totalSeguindo();
+        $this->view->totalSeguidores = $usuario->totalSeguidores();
 
         $this->view->usuarioPesquisado = $usuarios;
 
@@ -89,6 +102,23 @@ class AppController extends Action {
             header('Location: /quem_seguir');
         }
         
+    }
+
+    public function excluir_tweets() {
+        print_r($_GET);
+
+        $this->validarAuth();
+
+        $tweet = Container::getModel('Tweet');
+        $tweet->__set('id', $_GET['id_do_tweet']);
+
+        $tweet_excluido = $tweet->excluir();
+
+        if($tweet_excluido) {
+            header('Location: /timeline?excluir=success');
+        } else {
+            header('Location: /timeline?excluir=fail');
+        }
     }
 }
 

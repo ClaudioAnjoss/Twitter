@@ -68,6 +68,12 @@ class Route extends Bootstrap {
 			'action' => 'acao'
 		);
 
+		$routes['excluir_tweets'] = array(
+			'route' => '/excluir_tweets',
+			'controller' => 'AppController',
+			'action' => 'excluir_tweets'
+		);
+
 		$this->setRoutes($routes);
 	}
 

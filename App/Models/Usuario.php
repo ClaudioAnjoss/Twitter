@@ -121,5 +121,53 @@
 
             return true;
         }
+        
+        public function infoUsuario()
+        {
+            $query = "
+                SELECT nome FROM usuarios WHERE id = :id
+            ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        }
+
+        public function totalTweets()
+        {
+            $query = "
+                SELECT count(*) as total_tweets FROM tweets WHERE id_usuario = :id
+            ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        }
+
+        public function totalSeguindo()
+        {
+            $query = "
+                SELECT count(*) as total_seguindo FROM usuarios_seguidores WHERE id_usuario = :id
+            ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        }
+
+        public function totalSeguidores()
+        {
+            $query = "
+                SELECT count(*) as total_seguindo FROM usuarios_seguidores WHERE id_usuario_seguindo	 = :id
+            ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        }
     }
 ?>
