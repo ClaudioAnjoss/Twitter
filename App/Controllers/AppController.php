@@ -16,7 +16,17 @@ class AppController extends Action {
         $tweet = Container::getModel('Tweet');
         $tweet->__set('id_usuario' , $_SESSION['id']);
 
-        $tweets = $tweet->getAll();
+        $limite = 10;
+        $pagina = $_GET['pagina'] ? $_GET['pagina'] : 1;
+        $deslocamento = ($pagina -1) * $limite;
+
+        $this->view->pagina_ativa = $pagina;
+
+        // $tweets = $tweet->getAll();
+        $tweets = $tweet->getPorPagina($limite, $deslocamento);
+        $total_paginas = $tweet->totalTweets();
+        $total_paginas = $total_paginas['total'] / $limite;
+        $this->view->total_paginas = ceil($total_paginas);
 
         // Informaçoes do usuario
         $usuario = Container::getModel('Usuario');
@@ -42,8 +52,8 @@ class AppController extends Action {
         $tweet->__set('id_usuario' , $_SESSION['id']);
 
         $tweet->salvar();
-
-        $this->timeline();
+        
+        header('Location: /timeline');
         
     }
 
