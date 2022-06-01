@@ -28,6 +28,14 @@ class IndexController extends Action {
 		$this->render('inscreverse');
 	}
 
+	public function entrar() {
+
+		$this->view->login = isset($_GET['login']) ? $_GET['login'] : '';
+		$this->view->auth = isset($_GET['auth']) ? $_GET['auth'] : '';
+
+		$this->render('entrar');
+	}
+
 	public function registrar() {
 		// sucesso
 		// print_r($_POST);
@@ -46,7 +54,8 @@ class IndexController extends Action {
 				$this->render('cadastro');
 			} else {
 				$this->view->usuarioExiste = true;
-				$this->render('inscreverse');
+				// $this->render('inscreverse');
+				header("Location: /inscreverse?usuario_existe=true");
 			}
 		} else {
 			$this->view->camposInvalidos = true;
@@ -57,13 +66,6 @@ class IndexController extends Action {
 			);
 			$this->render('inscreverse');
 		}
-
-		// echo '<pre>';
-		// print_r($usuario);
-		// echo '</pre>';
-		
-
-		// erro
 	}
 
 }
