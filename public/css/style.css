@@ -106,6 +106,13 @@ h2 {
     font-size: 1em;
 }
 
+.fazer-login {
+    font-weight: 700;
+    background: #272C30;
+    cursor: pointer;
+    color: #fff;
+}
+
 .celular {
     font-size: 1em;
     color: #fff;
@@ -291,4 +298,127 @@ h2 {
 
 .tweet:hover {
     background-color: #f5f8fa;
+}
+
+
+
+/* Seçao timeline */
+
+/* Menu lateral */
+
+.menu-lateral {
+    /* display: flex; */
+    /* justify-content: start;
+    align-items: center; */
+    /* width: 100%; */
+    height: 100vh;
+    position: fixed;
+}
+
+.navigation {
+    /* width: 80px;
+    min-height: 400px; */
+    /* display: flex; */
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.logo-menu {
+    color: blue;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    width: 60px;
+    margin-left: 20px;
+}
+
+.logo-menu:hover {
+    background-color: #E8F5FD;
+    cursor: pointer;
+}
+
+.navigation .profile {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.navigation .profile .imgBx {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.navigation.active .profile .imgBx {
+    /* width: 200px;
+    height: 200px; */
+}
+
+.navigation .profile .imgBx img {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.navigation .menu-lat {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.navigation.active .menu-lat {
+    padding: 10px 20px;
+}
+
+.navigation .menu-lat li {
+    list-style: none;
+}
+
+.navigation .menu-lat li a {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    color: #000;
+    border-radius: 10px;
+}
+
+.navigation .menu-lat li a:hover {
+    background: #E7E7E8;
+    color: #000;
+    border-radius: 9999px;
+}
+
+.navigation .menu-lat li a .icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.navigation .menu-lat li a .text {
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
 }

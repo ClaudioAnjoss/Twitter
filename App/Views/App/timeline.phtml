@@ -1,139 +1,250 @@
-<nav class="navbar navbar-expand-lg menu">
-	<div class="container">
-		<div class="navbar-nav">
-			<a class="menuItem" href="/timeline">
-				Home
-			</a>
-
-			<a class="menuItem" href="/sair">
-				Sair
-			</a>
-			<img src="/img/twitter_logo.png" class="menuIco" />
+<body>
+	<!-- <nav class="navbar navbar-expand-lg menu">
+		<div class="container">
+			<div class="navbar-nav">
+				<a class="menuItem" href="/timeline">
+					Home
+				</a>
+	
+				<a class="menuItem" href="/sair">
+					Sair
+				</a>
+				<img src="/img/twitter_logo.png" class="menuIco" />
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav> -->
 
-<div class="container mt-5">
-	<div class="row pt-2">
-
-		<div class="col-md-3">
-
-			<div class="perfil">
-				<div class="perfilTopo">
-
-				</div>
-
-				<div class="perfilPainel">
-
-					<div class="row mt-2 mb-2">
-						<div class="col mb-2">
-							<span class="perfilPainelNome"><?= $this->view->infoUsuario['nome'] ?></span>
+<section class="container">
+	
+		<!-- Menu lateral -->
+	
+		<div class="row">
+			<div class="col-3 border">
+				<div class="menu-lateral">
+					<div class="navigation">
+						<div class="logo-menu">
+						<svg viewBox="0 0 24 24" aria-hidden="true" class="r-1cvl2hr r-4qtqp9 r-yyyyoo r-16y2uox r-8kz0gk r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-lrsllp"><g><path fill="#1D9BF0" d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg>
 						</div>
+						<ul class="menu-lat">
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+									<span class="text">Página Inicial</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="contract-outline"></ion-icon></span>
+									<span class="text">Explorar</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="notifications-outline"></ion-icon></span>
+									<span class="text">Notificações</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+									<span class="text">Mensagens</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="bookmark-outline"></ion-icon></span>
+									<span class="text">Itens salvos</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="reader-outline"></ion-icon></span>
+									<span class="text">Listas</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+									<span class="text">Perfil</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="icon"><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon></span>
+									<span class="text">Mais</span>
+								</a>
+							</li>
+	
+							<li class="mt-auto">
+								<a class="mt-auto" href="#">
+									<span class="mt-auto">
+										<div class="profile">
+										<div class="imgBx">
+											<img src="img/perfil.jpg" alt="">
+										</div>
+										</div>
+									</span>
+	
+									<span class="text">Nome do usuario</span>
+								</a>
+							</li>
+	
+						</ul>
+	
+	
 					</div>
-
-					<div class="row mb-2">
-
-						<div class="col">
-							<span class="perfilPainelItem">Tweets</span><br />
-							<span class="perfilPainelItemValor"><?= $this->view->totalTweets['total_tweets'] ?></span>
-						</div>
-
-						<div class="col">
-							<span class="perfilPainelItem">Seguindo</span><br />
-							<span class="perfilPainelItemValor"><?= $this->view->totalSeguindo['total_seguindo'] ?></span>
-						</div>
-
-						<div class="col">
-							<span class="perfilPainelItem">Seguidores</span><br />
-							<span class="perfilPainelItemValor"><?= $this->view->totalSeguidores['total_seguindo'] ?></span>
-						</div>
-
-					</div>
-
 				</div>
 			</div>
-
 		</div>
+</section>
 
-		<div class="col-md-6">
-			<div class="row mb-2">
-				<div class="col tweetBox">
-					<form action="/tweet" method="post">
-						<textarea name="tweet" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-						<div class="col mt-2 d-flex justify-content-end">
-							<button type="submit" class="btn btn-primary">Tweet</button>
+	<!-- <div class="container">
+					<?php if ((isset($_GET['cadastro'])) && $_GET['cadastro'] == 'true') { ?>
+						<div class="alert alert-primary alert-dismissible fade show" role="alert">
+							<strong>Ola!</strong> Seja bem vindo ao Twitter.
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
 						</div>
-
-					</form>
-				</div>
-			</div>
-
-			<?php
-			// echo '<pre>';
-			// print_r($this->view->tweets);
-			// echo '</pre>';
-			?>
-
-			<?php if ((isset($_GET['excluir'])) && $_GET['excluir'] == 'success') { ?>
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<strong>Publição removida!</strong> O tweet foi removido com sucesso.
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<?php } ?>
-
-			<?php if ((isset($_GET['excluir'])) && $_GET['excluir'] == 'fail') { ?>
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<strong>Erro!</strong> Houve um erro ao remover o tweet, tente novamente mais tarde.
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-			<?php } ?>
-
-			<?php foreach ($this->view->tweets as $key => $value) {
-				# code...
-			?>
-				<div class="row tweet">
-					<div class="col">
-						<p><strong><?= $value['nome'] ?></strong> <small><span class="text text-muted">- <?= $value['data'] ?></span></small></p>
-						<p><?= $value['tweet'] ?></p>
-						<br />
-
-						<?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
-							<form action="/excluir_tweets" method="get">
-								<div class="col d-flex justify-content-end">
-									<button name="id_do_tweet" value="<?= $value['id'] ?>" type="submit" class="btn btn-danger"><small>Remover</small></button>
-								</div>
-							</form>
-						<?php } ?>
-					</div>
-				</div>
-			<?php } ?>
-
-			<nav class="mt-3" aria-label="Navegação de página exemplo">
-				<ul class="pagination justify-content-center">
-					<?php for($i = 1; $i <= $this->view->total_paginas; $i++) { ?>
-					<li class="page-item <?= $this->view->pagina_ativa == $i ? 'active' : '' ?>"><a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a></li>	
 					<?php } ?>
-					
-				</ul>
-			</nav>
-
-
-
-		</div>
-
-
-		<div class="col-md-3">
-			<div class="quemSeguir">
-				<span class="quemSeguirTitulo">Quem seguir</span><br />
-				<hr />
-				<a href="/quem_seguir" class="quemSeguirTxt">Procurar por pessoas conhecidas</a>
+				</div>
+	
+	<div class="container mt-5">
+		<div class="row pt-2">
+	
+			<div class="col-md-3">
+	
+				<div class="perfil">
+					<div class="perfilTopo">
+	
+					</div>
+	
+					<div class="perfilPainel">
+	
+						<div class="row mt-2 mb-2">
+							<div class="col mb-2">
+								<span class="perfilPainelNome"><?= $this->view->infoUsuario['nome'] ?></span>
+							</div>
+						</div>
+	
+						<div class="row mb-2">
+	
+							<div class="col">
+								<span class="perfilPainelItem">Tweets</span><br />
+								<span class="perfilPainelItemValor"><?= $this->view->totalTweets['total_tweets'] ?></span>
+							</div>
+	
+							<div class="col">
+								<span class="perfilPainelItem">Seguindo</span><br />
+								<span class="perfilPainelItemValor"><?= $this->view->totalSeguindo['total_seguindo'] ?></span>
+							</div>
+	
+							<div class="col">
+								<span class="perfilPainelItem">Seguidores</span><br />
+								<span class="perfilPainelItemValor"><?= $this->view->totalSeguidores['total_seguindo'] ?></span>
+							</div>
+	
+						</div>
+	
+					</div>
+				</div>
+	
 			</div>
+	
+			<div class="col-md-6">
+				<div class="row mb-2">
+					<div class="col tweetBox">
+						<form action="/tweet" method="post">
+							<textarea name="tweet" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	
+							<div class="col mt-2 d-flex justify-content-end">
+								<button type="submit" class="btn btn-primary">Tweet</button>
+							</div>
+	
+						</form>
+					</div>
+				</div>
+	
+				<?php
+				// echo '<pre>';
+				// print_r($this->view->tweets);
+				// echo '</pre>';
+				?>
+	
+				<?php if ((isset($_GET['excluir'])) && $_GET['excluir'] == 'success') { ?>
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						<strong>Publição removida!</strong> O tweet foi removido com sucesso.
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<?php } ?>
+	
+				<?php if ((isset($_GET['excluir'])) && $_GET['excluir'] == 'fail') { ?>
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+						<strong>Erro!</strong> Houve um erro ao remover o tweet, tente novamente mais tarde.
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<?php } ?>
+	
+				<?php foreach ($this->view->tweets as $key => $value) {
+					# code...
+				?>
+					<div class="row tweet">
+						<div class="col">
+							<p><strong><?= $value['nome'] ?></strong> <small><span class="text text-muted">- <?= $value['data'] ?></span></small></p>
+							<p><?= $value['tweet'] ?></p>
+							<br />
+	
+							<?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
+								<form action="/excluir_tweets" method="get">
+									<div class="col d-flex justify-content-end">
+										<button name="id_do_tweet" value="<?= $value['id'] ?>" type="submit" class="btn btn-danger"><small>Remover</small></button>
+									</div>
+								</form>
+							<?php } ?>
+						</div>
+					</div>
+				<?php } ?>
+	
+				<nav class="mt-3" aria-label="Navegação de página exemplo">
+					<ul class="pagination justify-content-center">
+						<?php for ($i = 1; $i <= $this->view->total_paginas; $i++) { ?>
+						<li class="page-item <?= $this->view->pagina_ativa == $i ? 'active' : '' ?>"><a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a></li>
+						<?php } ?>
+	
+					</ul>
+				</nav>
+	
+	
+	
+			</div>
+	
+	
+			<div class="col-md-3">
+				<div class="quemSeguir">
+					<span class="quemSeguirTitulo">Quem seguir</span><br />
+					<hr />
+					<a href="/quem_seguir" class="quemSeguirTxt">Procurar por pessoas conhecidas</a>
+				</div>
+			</div>
+	
 		</div>
+	</div> -->
 
-	</div>
-</div>
+
+
+
+
+	<script>
+		const menu_toggle = document.querySelector('.menu_toggle');
+		const navigation = document.querySelector('.navigation');
+
+		menu_toggle.onclick = function() {
+			navigation.classList.toggle('active')
+		}
+	</script>
+
+</body>

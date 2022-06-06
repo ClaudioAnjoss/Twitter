@@ -17,7 +17,7 @@ class AppController extends Action {
         $tweet->__set('id_usuario' , $_SESSION['id']);
 
         $limite = 10;
-        $pagina = $_GET['pagina'] ? $_GET['pagina'] : 1;
+        $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
         $deslocamento = ($pagina -1) * $limite;
 
         $this->view->pagina_ativa = $pagina;
@@ -61,7 +61,7 @@ class AppController extends Action {
         session_start();
 
         if((!isset($_SESSION['id']) || $_SESSION['id'] == '') && (!isset($_SESSION['nome']) || $_SESSION['nome'] == '')) {
-            header('Location: /?auth=false'); 
+            header('Location: /entrar?auth=false'); 
         }
     }
 

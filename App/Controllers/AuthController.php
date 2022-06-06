@@ -24,12 +24,8 @@ class AuthController extends Action {
 
             header('Location: /timeline');
         } else {
-            header('Location: /?login=erro');
+            header('Location: /entrar?login=erro');
         }
-
-        // echo '<pre>';
-        // print_r($retorno);
-        // echo '</pre>';
     }
 
     public function sair() {
