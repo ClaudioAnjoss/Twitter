@@ -16,9 +16,10 @@
 
 	<section class="container">
 
-		<!-- Menu lateral -->
 
 		<div class="row">
+
+			<!-- Menu lateral -->
 			<div class="col-3">
 				<div class="menu-lateral">
 					<div class="navigation">
@@ -31,7 +32,7 @@
 						</div>
 						<ul class="menu-lat">
 							<li>
-								<a href="#">
+								<a href="/timeline">
 									<span class="icon">
 										<ion-icon name="home-outline"></ion-icon>
 									</span>
@@ -107,7 +108,7 @@
 								</div>
 
 								<div style="text-align: end;">
-									<span class="text mt-2 d-none d-lg-block">Nome do usuario</span>
+									<span class="text mt-2 d-none d-lg-block"><?= $this->view->infoUsuario['nome'] ?></span>
 									<a class="d-none d-lg-block" id="botao-sair" href="">
 										<span style="font-size: 1.5em;">
 											<ion-icon name="log-out-outline"></ion-icon>
@@ -116,13 +117,13 @@
 									</a>
 								</div>
 							</li>
-								<a class="d-md-block d-lg-none" id="botao-sair" href="">
-									<span style="font-size: 1.5em;">
-										<ion-icon name="log-out-outline"></ion-icon>
-									</span>
-									<span class="icone-sair d-none d-lg-block">Sair</span>
-								</a>
-							
+							<a class="d-md-block d-lg-none" id="botao-sair" href="">
+								<span style="font-size: 1.5em;">
+									<ion-icon name="log-out-outline"></ion-icon>
+								</span>
+								<span class="icone-sair d-none d-lg-block">Sair</span>
+							</a>
+
 
 
 
@@ -134,17 +135,50 @@
 
 			<!-- Timeline -->
 
-			<div class="col-6 timeline">
+			<div class="col timeline">
 				<div class="row mb-2">
 					<div class="col tweetBox">
-						<form action="/tweet" method="post">
-							<textarea name="tweet" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-
-							<div class="col mt-2 d-flex justify-content-end">
-								<button type="submit" class="btn btn-primary">Tweet</button>
+						<h1 class="tit_Tweet">Página inicial <span class="icon text-dark">
+								<ion-icon name="sparkles-outline"></ion-icon>
+							</span></h1>
+						<div class="row">
+							<div class="col-2" style="min-width: 60px;">
+								<div class="profile">
+									<div class="imgBx">
+										<img src="img/perfil.jpg" alt="">
+									</div>
+								</div>
 							</div>
 
-						</form>
+							<div class="col-10 mb-2">
+								<form action="/tweet" method="post">
+									<textarea name="tweet" id="textareaTweet" placeholder="O que está acontecendo?"></textarea>
+									<div class="d-flex mt-2">
+										<div class="funcionalidades_tweet">
+											<span class="icon">
+												<ion-icon name="image-outline"></ion-icon>
+											</span>
+											<span class="icon">
+												<ion-icon name="aperture-outline"></ion-icon>
+											</span>
+											<span class="icon">
+												<ion-icon name="bar-chart-outline"></ion-icon>
+											</span>
+											<span class="icon">
+												<ion-icon name="happy-outline"></ion-icon>
+											</span>
+											<span class="icon">
+												<ion-icon name="today-outline"></ion-icon>
+											</span>
+											<span class="icon" style="padding: 7px 10px 6px 9px;">
+												<ion-icon name="location-outline"></ion-icon>
+											</span>
+										</div>
+										<button class="botao-tweetar btn" type="submit">Tweetar</button>
+									</div>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -169,7 +203,75 @@
 				<?php foreach ($this->view->tweets as $key => $value) {
 					# code...
 				?>
+
+					<!-- Tweets -->
+
 					<div class="row tweet">
+						<div class="col-2">
+							<div class="profile">
+								<div class="imgBx">
+									<img src="img/perfil.jpg" alt="">
+								</div>
+							</div>
+						</div>
+
+						<div class="col-10 mb-2">
+
+							<p class="mt-2">
+								<strong><?= $value['nome'] ?></strong>
+								<small>
+									<span class="text text-muted">- <?= $value['data'] ?></span>
+								</small>
+
+								<?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
+							<form class="botao-excluir-tweet" action="/excluir_tweets" method="get">
+								<div class="col d-flex justify-content-end">
+									<span >
+										<button id="excluirTweet" class="icon" name="id_do_tweet" value="<?= $value['id'] ?>" type="submit">
+											<ion-icon name="close-outline"></ion-icon>
+										</button>
+									</span>
+								</div>
+							</form>
+							<?php } ?>
+
+							</p>
+
+							<p><?= $value['tweet'] ?></p>
+							<br />
+
+							<!-- <?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
+								<form action="/excluir_tweets" method="get">
+									<div class="col d-flex justify-content-end">
+										<button name="id_do_tweet" value="<?= $value['id'] ?>" type="submit" class="btn btn-danger"><small>Remover</small></button>
+									</div>
+								</form>
+							<?php } ?> -->
+
+							<div class="d-flex mt-2">
+								<div class="funcionalidades">
+									<span class="icon azul">
+										<ion-icon name="chatbubble-outline"></ion-icon>
+									</span>
+									<span class="icon verde">
+										<ion-icon name="repeat-outline"></ion-icon>
+									</span>
+									<span class="icon vermelho">
+										<ion-icon name="heart-outline"></ion-icon>
+									</span>
+									<span class="icon azul">
+										<ion-icon name="share-outline"></ion-icon>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+					<!-- <div class="row tweet">
 						<div class="col">
 							<p><strong><?= $value['nome'] ?></strong> <small><span class="text text-muted">- <?= $value['data'] ?></span></small></p>
 							<p><?= $value['tweet'] ?></p>
@@ -183,7 +285,8 @@
 								</form>
 							<?php } ?>
 						</div>
-					</div>
+					</div> -->
+
 				<?php } ?>
 
 				<nav class="mt-3" aria-label="Navegação de página exemplo">
@@ -201,11 +304,12 @@
 
 
 			<!-- pesquisar -->
-			<div class="col-3 bg-danger">
+			<div class="col-md-3 bg-danger">
 
 			</div>
 
 		</div>
+
 	</section>
 
 	<!-- <div class="container">
@@ -353,7 +457,7 @@
 
 			const largura_tela = window.innerWidth;
 
-			if (largura_tela <= 768) {
+			if (largura_tela <= 991) {
 				console.log('chegou aqui');
 				$('.navigation').addClass('show');
 			} else {
