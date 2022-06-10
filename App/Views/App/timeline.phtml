@@ -14,7 +14,7 @@
 		</div>
 	</nav> -->
 
-	<section class="container">
+	<section id="container-central" class="container">
 
 
 		<div class="row">
@@ -109,7 +109,7 @@
 
 								<div style="text-align: end;">
 									<span class="text mt-2 d-none d-lg-block"><?= $this->view->infoUsuario['nome'] ?></span>
-									<a class="d-none d-lg-block" id="botao-sair" href="">
+									<a class="d-none d-lg-block" id="botao-sair" href="/sair">
 										<span style="font-size: 1.5em;">
 											<ion-icon name="log-out-outline"></ion-icon>
 										</span>
@@ -117,7 +117,7 @@
 									</a>
 								</div>
 							</li>
-							<a class="d-md-block d-lg-none" id="botao-sair" href="">
+							<a class="d-md-block d-lg-none" id="botao-sair" href="/sair">
 								<span style="font-size: 1.5em;">
 									<ion-icon name="log-out-outline"></ion-icon>
 								</span>
@@ -136,6 +136,17 @@
 			<!-- Timeline -->
 
 			<div class="col timeline">
+
+			<!-- Obs: deixar uma mensagem pro usuario explicando um pouco do site -->
+				<?php if ((isset($_GET['cadastro'])) && $_GET['cadastro'] == 'true') { ?>
+					<div class="mt-2 alert alert-primary alert-dismissible fade show" role="alert">
+						<strong>Olá seja bem vindo(a) ao Twitter!</strong> Espero que goste e aproveite ao maximo sua experiencia.
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				<?php } ?>
+
 				<div class="row mb-2">
 					<div class="col tweetBox">
 						<h1 class="tit_Tweet">Página inicial <span class="icon text-dark">
@@ -207,7 +218,7 @@
 					<!-- Tweets -->
 
 					<div class="row tweet">
-						<div class="col-2">
+						<div class="col-2" style="min-width: 60px;">
 							<div class="profile">
 								<div class="imgBx">
 									<img src="img/perfil.jpg" alt="">
@@ -226,21 +237,21 @@
 								<?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
 							<form class="botao-excluir-tweet" action="/excluir_tweets" method="get">
 								<div class="col d-flex justify-content-end">
-									<span >
+									<span>
 										<button id="excluirTweet" class="icon" name="id_do_tweet" value="<?= $value['id'] ?>" type="submit">
 											<ion-icon name="close-outline"></ion-icon>
 										</button>
 									</span>
 								</div>
 							</form>
-							<?php } ?>
+						<?php } ?>
 
-							</p>
+						</p>
 
-							<p><?= $value['tweet'] ?></p>
-							<br />
+						<p><?= $value['tweet'] ?></p>
+						<br />
 
-							<!-- <?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
+						<!-- <?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
 								<form action="/excluir_tweets" method="get">
 									<div class="col d-flex justify-content-end">
 										<button name="id_do_tweet" value="<?= $value['id'] ?>" type="submit" class="btn btn-danger"><small>Remover</small></button>
@@ -248,22 +259,22 @@
 								</form>
 							<?php } ?> -->
 
-							<div class="d-flex mt-2">
-								<div class="funcionalidades">
-									<span class="icon azul">
-										<ion-icon name="chatbubble-outline"></ion-icon>
-									</span>
-									<span class="icon verde">
-										<ion-icon name="repeat-outline"></ion-icon>
-									</span>
-									<span class="icon vermelho">
-										<ion-icon name="heart-outline"></ion-icon>
-									</span>
-									<span class="icon azul">
-										<ion-icon name="share-outline"></ion-icon>
-									</span>
-								</div>
+						<div class="d-flex mt-2">
+							<div class="funcionalidades">
+								<span class="icon azul">
+									<ion-icon name="chatbubble-outline"></ion-icon>
+								</span>
+								<span class="icon verde">
+									<ion-icon name="repeat-outline"></ion-icon>
+								</span>
+								<span class="icon vermelho">
+									<ion-icon name="heart-outline"></ion-icon>
+								</span>
+								<span class="icon azul">
+									<ion-icon name="share-outline"></ion-icon>
+								</span>
 							</div>
+						</div>
 						</div>
 					</div>
 
@@ -460,9 +471,11 @@
 			if (largura_tela <= 991) {
 				console.log('chegou aqui');
 				$('.navigation').addClass('show');
+				$('#container-central').removeClass('container');
 			} else {
 				console.log('tela grande');
 				$('.navigation').removeClass('show');
+				$('#container-central').addClass('container');
 			}
 		}
 	</script>
