@@ -20,7 +20,7 @@
 		<div class="row">
 
 			<!-- Menu lateral -->
-			<div class="col-3">
+			<section class="col-3">
 				<div class="menu-lateral">
 					<div class="navigation">
 						<div class="logo-menu">
@@ -130,14 +130,13 @@
 						</ul>
 					</div>
 				</div>
-			</div>
-
+			</section>
 
 			<!-- Timeline -->
 
-			<div class="col timeline">
+			<section class="col timeline">
 
-			<!-- Obs: deixar uma mensagem pro usuario explicando um pouco do site -->
+				<!-- Obs: deixar uma mensagem pro usuario explicando um pouco do site -->
 				<?php if ((isset($_GET['cadastro'])) && $_GET['cadastro'] == 'true') { ?>
 					<div class="mt-2 alert alert-primary alert-dismissible fade show" role="alert">
 						<strong>Olá seja bem vindo(a) ao Twitter!</strong> Espero que goste e aproveite ao maximo sua experiencia.
@@ -311,13 +310,86 @@
 
 
 
-			</div>
+			</section>
 
 
 			<!-- pesquisar -->
-			<div class="col-md-3 bg-danger">
+			<section class="col-md-3">
+				<div class="container-lateral-dir">
 
-			</div>
+					<div class="busca mt-3">
+						<form class="input-group form-busca" action="/quem_seguir" method="get">
+							<div class="input-group-prepend">
+								<span class="icon-search">
+									<ion-icon name="search-outline"></ion-icon>
+								</span>
+							</div>
+							<input class="form-control" type="text" name="pesquisarPor" id="busca" placeholder="Buscar no twitter">
+						</form>
+
+						<?php // foreach ($this->view->usuarioPesquisado as $key => $value) { 
+						?>
+
+						<div class="listando-busca d-none">
+							<div class="resultados">
+								<!-- <div class="profile">
+									<div class="imgBx">
+										<img src="img/perfil.jpg" alt="">
+									</div>
+								</div>
+								<div>
+									<div class="nome">
+										Claudios Anjos
+									</div>
+									<div class="botoes">
+										<a href="#">Seguir</a>
+										<!-- <a href="#">Deixar de seguir</a> ->
+									</div>
+								</div> -->
+							</div>
+						</div>
+						<?php // } 
+						?>
+
+
+
+					</div>
+
+					<div class="noticias">
+						<h1>O que está acontecendo</h1>
+						<div class="not">
+							<h3>Internacional . AO VIVO</h3>
+							<h2>Cúpula das Américas reúne líderes em Los Angeles até sexta-feira</h2>
+							<small>Assuntos do Momento: Biden</small>
+						</div>
+
+						<div class="not">
+							<h2>Política · Assunto do Momento</h2>
+							<p>Brazilians</p>
+							<small>2.187 Tweets</small>
+						</div>
+
+						<div class="not">
+							<h2>Guerra na Ucrânia · AO VIVO</h2>
+							<p>As últimas informações sobre a guerra na Ucrânia</p>
+						</div>
+
+						<a class="mais" href="#">
+							Mostrar mais
+						</a>
+					</div>
+
+					<div class="rodape">
+						<a href="#">Termos de Serviço</a>
+						<a href="">Política de Privacidade</a>
+						<a href="">Política de cookies</a>
+						<a href="">Acessibilidade</a>
+						<a href="">Informações de anúncios</a>
+						<a href="">Mais...</a> <br>
+						<span>© 2022 Twitter, Inc.</span>
+					</div>
+				</div>
+			</section>
 
 		</div>
 
@@ -469,15 +541,59 @@
 			const largura_tela = window.innerWidth;
 
 			if (largura_tela <= 991) {
-				console.log('chegou aqui');
 				$('.navigation').addClass('show');
 				$('#container-central').removeClass('container');
 			} else {
-				console.log('tela grande');
 				$('.navigation').removeClass('show');
 				$('#container-central').addClass('container');
 			}
 		}
+
+		$(document).ready(function() {
+			$('.form-busca').focusin(() => {
+				$('.busca').addClass('active');
+			});
+
+			$('.form-busca').focusout(() => {
+				$('.busca').removeClass('active');
+			});
+
+
+			// Pesquisa
+			$("#busca").keyup(function() {
+				let busca = $('#busca').val();
+				let length_busca = $('#busca').val().length;
+
+				if(length_busca == 0 ) {
+					$('.listando-busca').html('');
+				}
+				
+				$.ajax({
+					url: `/quem_seguir?pesquisarPor=${busca}`,
+					dataType: 'json',
+					success: function(result) {
+
+						$('#busca').focusout(() => {
+							$('.noticias').removeClass('d-none');
+						})
+
+						if (length_busca >= 1) {
+							$('.listando-busca').removeClass('d-none');
+							$('.noticias').addClass('d-none');
+							$('.listando-busca').html('');
+
+							result.forEach(function(value) {
+								console.log(value)
+								$('.listando-busca').prepend(`<div class="resultados"><div class="profile"><div class="imgBx"><img src="img/perfil.jpg" alt=""></div></div><div><div class="nome">${value['nome']}</div><div class="botoes"><a href="/acao?acao=seguir&id_usuario=${value['id']}">Seguir</a><!-- <a href="#">Deixar de seguir</a> --></div></div></div>`);
+							});
+						} else {
+							$('.resultados').addClass('d-none');
+							console.log('chegou aqui')
+						}
+					}
+				});
+			});
+		});
 	</script>
 
 </body>

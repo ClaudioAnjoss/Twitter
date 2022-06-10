@@ -79,6 +79,13 @@ class AppController extends Action {
             $usuario->__set('id' , $_SESSION['id']);
 
             $usuarios = $usuario->getAll();
+
+            echo json_encode($usuarios);
+
+            // echo '<br><br><br><br><br><br>';
+            // echo '<pre>';
+            // print_r($usuarios);
+            // echo '</pre>';
         }
 
         // Informaçoes do usuario
@@ -92,7 +99,9 @@ class AppController extends Action {
 
         $this->view->usuarioPesquisado = $usuarios;
 
-        $this->render('quemSeguir');
+        
+
+        // $this->render('quemSeguir');
     }
 
     public function acao() {
@@ -106,10 +115,10 @@ class AppController extends Action {
 
         if($acao == 'seguir') {
             $usuario->seguirUsuario($id_usuario);
-            header('Location: /quem_seguir');
+            header('Location: /timeline');
         } else if($acao == 'deixar_seguir') {
             $usuario->deixarseguirUsuario($id_usuario);
-            header('Location: /quem_seguir');
+            header('Location: /timeline');
         }
         
     }
