@@ -36,6 +36,7 @@ class AppController extends Action {
         $this->view->totalTweets = $usuario->totalTweets();
         $this->view->totalSeguindo = $usuario->totalSeguindo();
         $this->view->totalSeguidores = $usuario->totalSeguidores();
+        $this->view->fotoPerfil = $usuario->getFotoPerfil();
 
         $this->view->tweets = $tweets;
 
@@ -137,6 +138,41 @@ class AppController extends Action {
             header('Location: /timeline?excluir=success');
         } else {
             header('Location: /timeline?excluir=fail');
+        }
+    }
+
+    public function foto_perfil() {
+
+        $this->validarAuth();
+
+
+        if(isset($_POST['acao'])) {
+            $arquivo = $_FILES['foto_perfil'];
+
+            $arquivoNovo = explode('.',$arquivo['name']);
+
+            if($arquivoNovo[sizeof($arquivoNovo)-1] == 'jpg' || $arquivoNovo[sizeof($arquivoNovo)-1] == 'png' || $arquivoNovo[sizeof($arquivoNovo)-1] == 'jpeg') {
+
+                $novo_nome = md5(time()) . '.' . $arquivoNovo[sizeof($arquivoNovo)-1]; 
+                move_uploaded_file($arquivo['tmp_name'],'uploads/'.$novo_nome);
+
+                $this->view->fotoTemporaria = 'uploads/'.$novo_nome;
+
+                $usuario = Container::getModel('Usuario');
+                $usuario->__set('id' , $_SESSION['id']);
+                $usuario->__set('foto_perfil' , $novo_nome);
+
+                $foto_perfil = $usuario->setFoto_perfil();
+
+                if($foto_perfil) {
+                    header('Location: /timeline?image_profile=success');
+                } else {
+                    header('Location: /timeline?image_profile=erro');
+                }
+                
+            } else {
+                die(header('Location: /timeline?image_profile=invalido'));
+            }
         }
     }
 }
