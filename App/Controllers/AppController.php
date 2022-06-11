@@ -17,7 +17,7 @@ class AppController extends Action {
         $tweet->__set('id_usuario' , $_SESSION['id']);
 
         $limite = 10;
-        $pagina = $_GET['pagina'] ? $_GET['pagina'] : 1;
+        $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
         $deslocamento = ($pagina -1) * $limite;
 
         $this->view->pagina_ativa = $pagina;
@@ -36,6 +36,7 @@ class AppController extends Action {
         $this->view->totalTweets = $usuario->totalTweets();
         $this->view->totalSeguindo = $usuario->totalSeguindo();
         $this->view->totalSeguidores = $usuario->totalSeguidores();
+        $this->view->fotoPerfil = $usuario->getFotoPerfil();
 
         $this->view->tweets = $tweets;
 
@@ -61,7 +62,7 @@ class AppController extends Action {
         session_start();
 
         if((!isset($_SESSION['id']) || $_SESSION['id'] == '') && (!isset($_SESSION['nome']) || $_SESSION['nome'] == '')) {
-            header('Location: /?auth=false'); 
+            header('Location: /entrar?auth=false'); 
         }
     }
 
@@ -79,6 +80,13 @@ class AppController extends Action {
             $usuario->__set('id' , $_SESSION['id']);
 
             $usuarios = $usuario->getAll();
+
+            echo json_encode($usuarios);
+
+            // echo '<br><br><br><br><br><br>';
+            // echo '<pre>';
+            // print_r($usuarios);
+            // echo '</pre>';
         }
 
         // Informaçoes do usuario
@@ -92,7 +100,9 @@ class AppController extends Action {
 
         $this->view->usuarioPesquisado = $usuarios;
 
-        $this->render('quemSeguir');
+        
+
+        // $this->render('quemSeguir');
     }
 
     public function acao() {
@@ -106,10 +116,10 @@ class AppController extends Action {
 
         if($acao == 'seguir') {
             $usuario->seguirUsuario($id_usuario);
-            header('Location: /quem_seguir');
+            header('Location: /timeline');
         } else if($acao == 'deixar_seguir') {
             $usuario->deixarseguirUsuario($id_usuario);
-            header('Location: /quem_seguir');
+            header('Location: /timeline');
         }
         
     }
@@ -128,6 +138,41 @@ class AppController extends Action {
             header('Location: /timeline?excluir=success');
         } else {
             header('Location: /timeline?excluir=fail');
+        }
+    }
+
+    public function foto_perfil() {
+
+        $this->validarAuth();
+
+
+        if(isset($_POST['acao'])) {
+            $arquivo = $_FILES['foto_perfil'];
+
+            $arquivoNovo = explode('.',$arquivo['name']);
+
+            if($arquivoNovo[sizeof($arquivoNovo)-1] == 'jpg' || $arquivoNovo[sizeof($arquivoNovo)-1] == 'png' || $arquivoNovo[sizeof($arquivoNovo)-1] == 'jpeg') {
+
+                $novo_nome = md5(time()) . '.' . $arquivoNovo[sizeof($arquivoNovo)-1]; 
+                move_uploaded_file($arquivo['tmp_name'],'uploads/'.$novo_nome);
+
+                $this->view->fotoTemporaria = 'uploads/'.$novo_nome;
+
+                $usuario = Container::getModel('Usuario');
+                $usuario->__set('id' , $_SESSION['id']);
+                $usuario->__set('foto_perfil' , $novo_nome);
+
+                $foto_perfil = $usuario->setFoto_perfil();
+
+                if($foto_perfil) {
+                    header('Location: /timeline?image_profile=success');
+                } else {
+                    header('Location: /timeline?image_profile=erro');
+                }
+                
+            } else {
+                die(header('Location: /timeline?image_profile=invalido'));
+            }
         }
     }
 }

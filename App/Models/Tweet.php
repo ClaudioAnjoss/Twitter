@@ -52,7 +52,7 @@
         public function getPorPagina($limit, $offset) {
             $query = "
             SELECT 
-                t.id, t.id_usuario, u.nome,  t.tweet, DATE_FORMAT(t.data, '%d/%m/%Y %H:%i') as data 
+                t.id, t.id_usuario, u.nome, u.foto_perfil,  t.tweet, DATE_FORMAT(t.data, '%d/%m/%Y %H:%i') as data 
             FROM 
                 tweets as t
                 left join usuarios as u on (t.id_usuario = u.id)

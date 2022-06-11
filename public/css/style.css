@@ -1,9 +1,56 @@
+@font-face {
+    font-family: "Akira";
+    src: url(../font/ABESIF-PersonalUse.otf);
+ }
+
+
 html, body {
   height: 100%;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 body {
 	font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.bg {
+    background: #999999;
+    height: 100vh;
+    display: flex;
+}
+
+#cadastro .button-close {
+    padding: 6px 10px 10px;
+}
+
+#cadastro .card {
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+
+
+#cadastro .button-close:hover {
+    border-radius: 100px;
+    background: #99999946;
+}
+
+.formulario input {
+    height: 50px;
+}
+
+.formulario .input-group-text {
+    background: none;
+    border: 1px solid #e6ecf0;
+    border-left: none;
+    color: green;
+}
+
+#confirm-senha {
+    /* border-right: none; */
 }
 
 h1 {
@@ -29,19 +76,87 @@ h2 {
 .banner {
 	height: 100%;
 	background-color: #1da1f2;
+    background: url(../img/lohp_1302x955.png) center center no-repeat;
+}
+
+#svg-logo {
+    width: 100%;
 }
 
 .title {
-	color: #1da1f2;
-	font-size: 27px;
-    line-height: 32px;
+    font-family: "Akira", "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+	font-size: 4em;
+    font-weight: 600;
 }
 
 .subtitle {
+    font-family: "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 	color: #14171a;
-    font-size: 18px;
+    font-size: 2em;
     line-height: 24px;
     margin: 16px auto;
+}
+
+.login {
+    border: 1px solid #65778675;
+    border-radius: 100px;
+    padding: 2% 15%;
+    text-align: center;
+    margin: 2%;
+    font-size: 1em;
+}
+
+.fazer-login {
+    font-weight: 700;
+    background: #272C30;
+    cursor: pointer;
+    color: #fff;
+}
+
+.celular {
+    font-size: 1em;
+    color: #fff;
+    background: #1DA1F2;
+    font-weight: 700;
+    padding: 2%;
+    text-decoration: none;
+}
+
+.celular:hover {
+    background: #0c7ec5;
+}
+
+.container-inscreverse {
+    width: 400px;
+}
+
+.container-inscreverse button {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    display: block;
+    background: none;
+    width: 100%;
+}
+
+#google_apple .login:hover {
+    background-color: #E6E6E6;
+}
+
+.entrar {
+    color: #1DA1F2
+}
+
+.entrar:hover {
+    background-color: #E8F5FD;
+    color: #1DA1F2
+}
+
+.ou {
+    text-align: center;
+    background: url(../img/Screenshot_2-removebg-preview.png);
+    margin: 3%;
 }
 
 .form-control {
@@ -146,8 +261,6 @@ h2 {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     border: 1px solid #e6ecf0;
-    background-color: #E8F5FD;
-    padding:25px;
 }
 
 .quemSeguir {
@@ -184,3 +297,583 @@ h2 {
 .tweet:hover {
     background-color: #f5f8fa;
 }
+
+
+
+/* Seçao timeline */
+
+/* Menu lateral */
+
+.menu-lateral {
+    height: 100vh;
+    position: fixed;
+}
+
+.navigation {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+    transition: 0.5s;
+    height: 100%;
+}
+
+.navigation.show {
+    width: 70px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.navigation.show .menu-lat li a .icon {
+    margin: 0 30px 0 12px;
+}
+
+.navigation.show .logo-menu {
+    margin-left: 7px;
+}
+
+.navigation.show .profile {
+    padding: 0;
+    width: 95%;
+}
+
+.logo-menu {
+    color: blue;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    width: 60px;
+    margin-left: 20px;
+}
+
+.logo-menu:hover {
+    background-color: #E8F5FD;
+    cursor: pointer;
+}
+
+.navigation .profile {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.navigation .profile .imgBx {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.navigation .profile .imgBx img {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.navigation .menu-lat {
+    display: flex;
+    /* align-items: flex-start; */
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.navigation.active .menu-lat {
+    padding: 10px 20px;
+}
+
+.navigation .menu-lat li {
+    list-style: none;
+}
+
+.navigation .menu-lat li a {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+    color: #000;
+    border-radius: 10px;
+}
+
+.navigation .menu-lat li:hover {
+    background: #E7E7E8;
+    color: #000;
+    border-radius: 9999px;
+}
+
+.navigation .menu-lat li a .icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+.navigation .menu-lat li a .text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25em;
+}
+
+.tweetar {
+    background: #1A8CD8;
+    border-radius: 50px;
+    padding: 10px 60px;
+    margin-left: 15px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+#botao-sair {
+    text-decoration: none;
+    color: #000;
+    border-radius: 15px;
+    display: inline;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+#botao-sair:hover {
+    color: #0c7ec5;
+}
+
+.icone-sair {
+    position: relative;
+    font-size: 1.3em;
+    top: -5%;
+}
+
+/* Timeline */
+
+.timeline {
+    min-width: 200px;
+    border-left: 1px solid #e6ecf0;
+}
+
+.timeline .profile {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.timeline .profile .imgBx {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.timeline .profile .imgBx img {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+#textareaTweet {
+    min-height: 65px;
+    margin-top: 15px;
+    width: 100%;
+    border: none;
+    overflow-y: hidden;
+}
+
+#textareaTweet::-webkit-input-placeholder{
+    font-size: 1.3em;
+    font-weight: 500;
+}
+#textareaTweet::-moz-placeholder {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.timeline .tit_Tweet {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.timeline .tit_Tweet span {
+    margin-left: auto;
+    /*  */
+}
+
+.timeline .icon {
+    font-size: 1.2em;
+    color: rgb(29, 155, 240);
+    padding: 7px 3px 6px 9px;
+}
+
+.timeline .icon:hover {
+    background-color: #E8F5FD;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.botao-tweetar {
+    margin-left: auto;
+    background: #1A8CD8;
+    border-radius: 50px;
+    padding: 7px 25px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8em;
+}
+
+.funcionalidades {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.funcionalidades .icon {
+    padding: 10px 8px 9px 10px;
+    color: rgb(83, 100, 113);
+}
+
+.funcionalidades .icon.verde:hover {
+    background-color: #DEF1EB;
+    color: green;
+}
+
+.funcionalidades .icon.vermelho:hover {
+    background-color: #F7E0EB;
+    color: red;
+}
+
+.funcionalidades .icon.azul:hover {
+    color: #1A8CD8;
+}
+
+#excluirTweet {
+    position: absolute;
+    margin: 5px;
+    right: 0;
+    padding: 9px 7px 8px 8px;
+    border: none;
+    border-radius: 15px;
+    color: #000;
+}
+
+#excluirTweet:hover {
+    color: #1A8CD8;
+}
+
+.botao-excluir-tweet {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px;
+}
+
+/* Seçao lado direito: Busca/Noticias/Quem seguir/Rodape */
+
+/* Busca */
+.busca .icon-search {
+    justify-content: center;
+    display: grid;
+    background: #EFF3F4;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.busca .form-control {
+    background: #EFF3F4;
+    padding: 21px;
+}
+
+.busca form {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+
+.busca.active form {
+    border: 1px solid #1da1f2;
+}
+
+.busca.active .icon-search {
+    color: #1da1f2;
+    
+}
+
+.busca.active .form-control {
+    background: none;
+    border: none;
+}
+
+.busca.active .icon-search {
+    background: none;
+}
+
+.busca .resultados {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background: #F7F9F9;
+    margin: 15px 0;
+    border-radius: 40px;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+
+
+
+.busca .resultados:hover {
+    background: #EFF1F1;
+}
+
+
+.busca .profile {
+    width: 70px;
+    min-height: 60px;
+}
+
+.busca .profile .imgBx {
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+}
+
+.busca .profile .imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.busca .nome {
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.busca .botoes a{
+    color: #0c7ec5;
+    transition: 0.3s;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-align: center;
+    display: block;
+}
+
+.busca .botoes a:hover{
+    background: #1DA1F2;
+    color: #fff;
+}
+
+/* Noticias */
+.noticias {
+    background: #F7F9F9;
+    min-height: 60px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.noticias .not {
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.noticias .not:hover {
+    background: #EFF1F1;
+}
+
+.noticias h1 {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+}
+
+.noticias h2 {
+    font-size: 15px;
+    margin: 0;
+}
+
+.noticias h3 {
+    font-size: 13px;
+    margin: 0;
+}
+
+.noticias .mais {
+    margin: 15px 0;
+    display: block;
+    padding: 10px;
+}
+
+.noticias .mais:hover {
+    background: #EFF1F1;
+    border-radius: 0 0px 20px 20px;
+}
+
+/* Rodape */
+
+.rodape {
+    font-size: 13px;
+    padding: 15px 5px;
+    color: #5e6a74;
+}
+
+.rodape a {
+    color: #677682;
+}
+.rodape a:hover {
+    text-decoration: underline;
+}
+
+/* Secao editar perfil */
+
+.container-editar-perfil {
+    display: none;
+    background: #f5f5f5b8;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 999999999999;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-editar-perfil.active {
+    display: grid;
+    
+}
+
+.container-editar-perfil .editar-perfil {
+    padding: 6% 10%;
+    background: #fff;
+    border-radius: 30px;
+    text-align: center;
+    border: 2px solid #f5f5f5;
+    min-width: 360px;
+}
+
+.container-editar-perfil .editar-perfil .profile {
+    margin: 10px 0;
+    padding: 0 10px;
+    cursor: pointer;
+    display: grid;
+    justify-content: center;
+}
+
+.container-editar-perfil .editar-perfil .profile .imgBx {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    transition: 0.5s;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.container-editar-perfil .editar-perfil .profile .imgBx img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.container-editar-perfil .editar-perfil input {
+    margin: 5%;
+    font-size: 1.1em;
+    height: 45px;
+}
+
+.container-editar-perfil .editar-perfil .lead {
+    font-size: 1.4em;
+}
+
+.container-editar-perfil .editar-perfil .botao-salvar {
+    background: #1A8CD8;
+    border-radius: 50px;
+    padding: 10px 60px;
+    margin-left: 15px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+}
+
+.container-editar-perfil .editar-perfil .close {
+    text-align: end;
+}
+.container-editar-perfil .editar-perfil .close a {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #000;
+}
+#form-edit-perfil {
+    transition: 0.5s;
+}
+
+.container-editar-perfil .editar-perfil .informacoes-perfil {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.container-editar-perfil .editar-perfil .btn-outline-primary {
+    border-radius: 50px;
+    font-size: 1.2em;
+    margin-top: 5%;
+    transition: 0.5s;
+}
+
+#upload-foto {
+    display: none;
+}
+
+#icon-upload-foto {
+    position: relative;
+    border: 2px solid #000;
+    font-size: 1.5em;
+    border-radius: 50%;
+    padding: 7px;
+    cursor: pointer;
+    background: #f5f5f5ab;
+    top: 80%;
+    left: 32%;
+    transition: 0.5s;
+}
+
+#icon-upload-foto:hover {
+    color: #1da1f2;
+    border: 2px solid #1da1f2;
+    background: #f5f5f5;
+}
+
+.container-editar-perfil .editar-perfil .salva-foto-perfil {
+    
+}
+

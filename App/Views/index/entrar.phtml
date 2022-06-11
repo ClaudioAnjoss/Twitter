@@ -1,0 +1,150 @@
+<!-- <div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="card" style="width: 36rem;">
+      <div class="card-body">
+
+        <div class="d-flex justify-content-center">
+          <img src="/img/twitter_logo.png" />
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <h2>Entrar</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            
+            <form action="/registrar" method="post">
+              <div class="form-group">
+                <input name="nome" value="<?= $this->view->valueCampos['nome']  ?>" type="text" class="form-control" placeholder="Nome">
+              </div>
+              
+              <div class="form-group">
+                <input name="email" value="<?= $this->view->valueCampos['email']  ?>" type="text" class="form-control" placeholder="E-mail">
+              </div>
+
+              <div class="form-group">
+                <input name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Senha">
+              </div>
+
+              <?php if (isset($this->view->usuarioExiste)) { ?>
+                <small class="lead text-danger">Usuario já Existe, tente utilizar outro e-mail</small>
+              <?php } ?>
+
+              <?php if (isset($this->view->camposInvalidos)) { ?>
+                <small class="lead text-danger">Houve um ero ao efetuar o cadastro, verifique se os campos estao preenchidos corretamente</small>
+              <?php } ?>
+              
+              <div class="mt-4 mb-4">
+                <small class="form-text">
+                  Ao inscrever-se, você concorda com os Termos de Serviço e com as Políticas de Privacidade, incluindo o Uso de Cookies. Outras pessoas poderão encontrar você pelo e-mail ou número de telefone fornecido · Opções de Privacidade
+                </small>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Inscrever-se</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<body id="cadastro" class="bg">
+  <div class="container">
+    <div style="height: 100%;" class="d-flex justify-content-center align-content-center">
+      <div class="card align-self-center" style="width: 36rem;">
+        <div class="card-body">
+
+          <a class="button-close" href="/"><svg fill="#000" style="width: 20px;" viewBox="0 0 24 24" aria-hidden="true" class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03">
+              <g>
+                <path d="M13.414 12l5.793-5.793c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414 0L12 10.586 6.207 4.793c-.39-.39-1.023-.39-1.414 0s-.39 1.023 0 1.414L10.586 12l-5.793 5.793c-.39.39-.39 1.023 0 1.414.195.195.45.293.707.293s.512-.098.707-.293L12 13.414l5.793 5.793c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L13.414 12z"></path>
+              </g>
+            </svg></a>
+
+          <div class="d-flex justify-content-center">
+            <img src="/img/twitter_logo.png" />
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <h2 style="font-size: 2em;" class="text-center">Entrar no Twitter</h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+
+              <div class="col text-center m-auto">
+                <?php if ($this->view->auth != '') { ?>
+                  <div class="row">
+                    <small class="lead text-danger ml-3">Voce precisa esta logado para acessar essa pagina, faça login para continuar.</small>
+                  </div>
+                <?php } ?>
+              </div>
+
+              <form class="formulario" action="/autenticar" method="post">
+
+                <div class="m-auto p-2 container-inscreverse">
+                  <div id="google_apple">
+                    <button href="" disabled>
+                      <div class="login"><svg style="width: 20px;" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c">
+                          <g>
+                            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                            <path fill="none" d="M0 0h48v48H0z"></path>
+                          </g>
+                        </svg> Entrar com Google</div>
+                    </button>
+                    <button href="" disabled>
+                      <div class="login"><i style="font-size: 1.5em;" class="fab fa-apple"></i> Entrar com Apple</div>
+                    </button>
+                  </div>
+
+                  <p class="ou">ou</p>
+
+                  <div class="form-group">
+                    <input name="email" type="text" class="form-control" placeholder="E-mail">
+                  </div>
+
+                  <div class="form-group">
+                    <input id="senha" name="senha" type="password" class="form-control" placeholder="Senha">
+                  </div>
+
+                  <?php if ($this->view->login != '') { ?>
+                    <div class="row">
+                      <small class="lead text-danger ml-3">Usuario ou senha invalidos</small>
+                    </div>
+                  <?php } ?>
+
+                  <div>
+                    <button href="" type="submit">
+                      <div class="fazer-login login"> Entrar</div>
+                    </button>
+
+                    <button href="" disabled>
+                      <div class="login">Esqueceu sua senha?</div>
+                    </button>
+
+                  </div>
+
+                  <div class="mt-4 mb-4">
+                    <span>Não tem uma conta? <a href="/inscreverse">Inscreva-se</a></span>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

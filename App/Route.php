@@ -20,6 +20,12 @@ class Route extends Bootstrap {
 			'action' => 'inscreverse'
 		);
 
+		$routes['entrar'] = array(
+			'route' => '/entrar',
+			'controller' => 'indexController',
+			'action' => 'entrar'
+		);
+
 		$routes['registrar'] = array(
 			'route' => '/registrar',
 			'controller' => 'indexController',
@@ -73,6 +79,14 @@ class Route extends Bootstrap {
 			'controller' => 'AppController',
 			'action' => 'excluir_tweets'
 		);
+
+		$routes['foto_perfil'] = array(
+			'route' => '/foto_perfil',
+			'controller' => 'AppController',
+			'action' => 'foto_perfil'
+		);
+
+		
 
 		$this->setRoutes($routes);
 	}

@@ -7,6 +7,7 @@
         private $nome;
         private $email;
         private $senha;
+        private $foto_perfil;
 
         public function __get($attr)
         {
@@ -78,7 +79,7 @@
         public function getAll() {
             $query = "
                 SELECT 
-                    u.id, u.nome, u.email, (
+                    u.id, u.nome, u.foto_perfil, u.email, (
                         SELECT 
                             count(*)
                         FROM
@@ -162,6 +163,37 @@
         {
             $query = "
                 SELECT count(*) as total_seguindo FROM usuarios_seguidores WHERE id_usuario_seguindo	 = :id
+            ";
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->execute();
+
+            return $stmt->fetch(\PDO::FETCH_ASSOC);
+        }
+
+        public function setFoto_perfil() {
+            // echo $this->__get('foto_perfil');
+
+            $query = "
+                UPDATE 
+                    usuarios
+                SET
+                    foto_perfil = :foto_perfil
+                WHERE 
+                    id = :id
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':id', $this->__get('id'));
+            $stmt->bindValue(':foto_perfil', $this->__get('foto_perfil'));
+            $stmt->execute();
+
+            return true;
+        }
+
+        public function getFotoPerfil() {
+            $query = "
+                SELECT foto_perfil FROM usuarios WHERE id = :id
             ";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':id', $this->__get('id'));
