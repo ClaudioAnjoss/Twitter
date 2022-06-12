@@ -260,7 +260,7 @@ h2 {
 .tweetBox {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
-    border: 1px solid #e6ecf0;
+    /* border: 1px solid #e6ecf0; */
 }
 
 .quemSeguir {
@@ -289,8 +289,10 @@ h2 {
 }
 
 .tweet {
+    margin: 0;
     padding:15px;
     border-bottom: 1px solid #e6ecf0;
+    border-top: 1px solid #e6ecf0;
     cursor: pointer;
 }
 
@@ -301,6 +303,18 @@ h2 {
 
 
 /* Seçao timeline */
+
+#container-central {
+    display: grid;
+    justify-content: center;
+}
+
+.container-page {
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    overflow: hidden;
+
+}
 
 /* Menu lateral */
 
@@ -464,7 +478,7 @@ h2 {
 
 .timeline {
     min-width: 200px;
-    border-left: 1px solid #e6ecf0;
+    border: 1px solid #e6ecf0;
 }
 
 .timeline .profile {
@@ -502,6 +516,7 @@ h2 {
     margin-top: 15px;
     width: 100%;
     border: none;
+    border-bottom: 1px solid #e6ecf0;
     overflow-y: hidden;
 }
 
@@ -545,6 +560,7 @@ h2 {
     color: #fff;
     font-weight: 700;
     font-size: 0.8em;
+    max-height: 35px;
 }
 
 .funcionalidades {
@@ -692,12 +708,40 @@ h2 {
     color: #fff;
 }
 
+.hamburguer .navbar-toggler-icon {
+    color: #000;
+    background: #0c7ec5;
+}
+
+.hamburguer .direito-hamburguer {
+    display: none;
+}
+
+.toggle-search {
+    background: none;
+    font-size: 1.5em;
+    border-radius: 5px;
+    color: #0c7ec5;
+    border: 3px solid #0c7ec5;
+    margin: 15px 2%;
+    cursor: pointer;
+}
+
+.toggle-search.active {
+    background: #0c7ec5;
+    color: #fff;
+}
+
+.toggle-search:hover {
+    background: #0c7ec5;
+    color: #fff;
+}
+
 /* Noticias */
 .noticias {
     background: #F7F9F9;
     min-height: 60px;
     border-radius: 20px;
-    transition: 0.5s;
 }
 
 .noticias .not {
@@ -767,8 +811,7 @@ h2 {
 }
 
 .container-editar-perfil.active {
-    display: grid;
-    
+    display: grid;    
 }
 
 .container-editar-perfil .editar-perfil {
@@ -834,8 +877,13 @@ h2 {
     text-decoration: none;
     color: #000;
 }
+
+#botao-edit-perfil.active {
+    background: #1da1f2;
+}
+
 #form-edit-perfil {
-    transition: 0.5s;
+    display: none;
 }
 
 .container-editar-perfil .editar-perfil .informacoes-perfil {
@@ -847,7 +895,6 @@ h2 {
     border-radius: 50px;
     font-size: 1.2em;
     margin-top: 5%;
-    transition: 0.5s;
 }
 
 #upload-foto {
@@ -873,7 +920,16 @@ h2 {
     background: #f5f5f5;
 }
 
-.container-editar-perfil .editar-perfil .salva-foto-perfil {
-    
+#salva-foto-perfil {
+    display: none;
+}
+
+/* Media Queries */
+
+@media (max-width: 991px)
+{
+    .container-page {
+        grid-template-columns: 25% auto 10%;
+    }
 }
 

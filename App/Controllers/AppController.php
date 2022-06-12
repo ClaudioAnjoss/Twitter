@@ -145,6 +145,7 @@ class AppController extends Action {
 
         $this->validarAuth();
 
+        echo json_encode('Oi');
 
         if(isset($_POST['acao'])) {
             $arquivo = $_FILES['foto_perfil'];
