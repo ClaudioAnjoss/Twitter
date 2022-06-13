@@ -82,11 +82,6 @@ class AppController extends Action {
             $usuarios = $usuario->getAll();
 
             echo json_encode($usuarios);
-
-            // echo '<br><br><br><br><br><br>';
-            // echo '<pre>';
-            // print_r($usuarios);
-            // echo '</pre>';
         }
 
         // Informaçoes do usuario
@@ -99,10 +94,6 @@ class AppController extends Action {
         $this->view->totalSeguidores = $usuario->totalSeguidores();
 
         $this->view->usuarioPesquisado = $usuarios;
-
-        
-
-        // $this->render('quemSeguir');
     }
 
     public function acao() {
