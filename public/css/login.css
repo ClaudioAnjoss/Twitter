@@ -1,0 +1,145 @@
+.bg {
+    background: #999999;
+    height: 100vh;
+    display: flex;
+}
+
+#cadastro .button-close {
+    padding: 6px 10px 10px;
+}
+
+#cadastro .card {
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+
+
+#cadastro .button-close:hover {
+    border-radius: 100px;
+    background: #99999946;
+}
+
+.formulario input {
+    height: 50px;
+}
+
+.formulario .input-group-text {
+    background: none;
+    border: 1px solid #e6ecf0;
+    border-left: none;
+    color: green;
+}
+
+h1 {
+	display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h2 {
+	display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.banner {
+	height: 100%;
+	background-color: #1da1f2;
+    background: url(../img/lohp_1302x955.png) center center no-repeat;
+}
+
+#svg-logo {
+    width: 100%;
+}
+
+.title {
+    font-family: "Akira", "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+	font-size: 4em;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-family: "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+	color: #14171a;
+    font-size: 2em;
+    line-height: 24px;
+    margin: 16px auto;
+}
+
+.login {
+    border: 1px solid #65778675;
+    border-radius: 100px;
+    padding: 2% 15%;
+    text-align: center;
+    margin: 2%;
+    font-size: 1em;
+}
+
+.fazer-login {
+    font-weight: 700;
+    background: #272C30;
+    cursor: pointer;
+    color: #fff;
+}
+
+.celular {
+    font-size: 1em;
+    color: #fff;
+    background: #1DA1F2;
+    font-weight: 700;
+    padding: 2%;
+    text-decoration: none;
+}
+
+.celular:hover {
+    background: #0c7ec5;
+}
+
+.container-inscreverse {
+    max-width: 400px;
+}
+
+.container-inscreverse button {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    border: none;
+    display: block;
+    background: none;
+    width: 100%;
+}
+
+#google_apple .login:hover {
+    background-color: #E6E6E6;
+}
+
+.entrar {
+    color: #1DA1F2
+}
+
+.entrar:hover {
+    background-color: #E8F5FD;
+    color: #1DA1F2
+}
+
+.ou {
+    text-align: center;
+    background: url(../img/Screenshot_2-removebg-preview.png);
+    margin: 3%;
+}
+
+.form-control {
+	background-color: #fff;
+    border: 1px solid #e6ecf0;
+    border-radius: 3px;
+}
+

@@ -201,5 +201,30 @@
 
             return $stmt->fetch(\PDO::FETCH_ASSOC);
         }
+
+        public function editar_perfil() {
+            // echo 'chegamos aqui <br>';
+
+            // echo $this->__get('email');
+            // echo $this->__get('nome');
+            // echo $this->__get('id');
+
+            $query = "
+                UPDATE 
+                    usuarios
+                SET
+                    nome = :nome , email = :email
+                WHERE 
+                    id = :id
+            ";
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bindValue(':nome' , $this->__get('nome'));
+            $stmt->bindValue(':email' , $this->__get('email'));
+            $stmt->bindValue(':id' , $this->__get('id'));
+            $stmt->execute();
+
+            return true;
+        }
     }
 ?>

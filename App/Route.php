@@ -86,6 +86,12 @@ class Route extends Bootstrap {
 			'action' => 'foto_perfil'
 		);
 
+		$routes['editar_perfil'] = array(
+			'route' => '/editar_perfil',
+			'controller' => 'AppController',
+			'action' => 'editar_perfil'
+		);
+
 		
 
 		$this->setRoutes($routes);

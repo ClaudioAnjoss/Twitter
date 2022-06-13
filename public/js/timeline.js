@@ -5,14 +5,21 @@ function esconder_menu() {
         // $('#container-central').removeClass('container');
         $('.direito').hide();
         $('.esquerdo.text').hide()
-        $('.toggle-search').show('slow')
+        $('.toggle-search').show('slow');
+        
+        if ($('.toggle-search').hasClass('active')) {
+            $('.direito').show();
+        } else {
+            $('.direito').hide();
+        }
         
     } else {
         $('.navigation').removeClass('show');
         // $('#container-central').addClass('container');
         $('.direito').show();
         $('.toggle-search').hide()
-        
+        $('.centro').show('slow');
+        $('.toggle-search').removeClass('active');        
     }
 }
 $(document).ready(function () {
@@ -82,8 +89,8 @@ $(document).ready(function () {
     // Seçao botao pesquisar
 
     $('.toggle-search').click(() => {        
-        $('.centro').fadeToggle(0001)
-        $('.direito-hamburguer').slideToggle(0001 , () => {
+        $('.centro').fadeToggle(0001);
+        $('.direito').slideToggle(0001 , () => {
             $('.toggle-search').toggleClass('active');
         });
     })

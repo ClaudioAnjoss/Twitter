@@ -38,16 +38,18 @@
 				</div>
 			</div>
 			<button id="botao-edit-perfil" class="btn btn-outline-primary">Editar Perfil</button>
-			<form id="form-edit-perfil" action="">
-				<input class="form-control" name="nome" type="text" placeholder="Nome">
-				<input class="form-control" type="email" name="email" placeholder="E-mail">
+			<form id="form-edit-perfil" action="/editar_perfil" method="post">
+				<input class="form-control" name="nome" type="text" placeholder="Nome" required>
+				<input class="form-control" type="email" name="email" placeholder="E-mail" required>
 				<button class="botao-salvar" type="submit">Salvar</button>
 			</form>
 		</div>
 	</section>
 
+
+
 	<section id="container-central">
-		<div class="container-page">
+		<div class="container-page container">
 
 			<!-- Menu lateral -->
 			<section class="esquerdo">
@@ -159,9 +161,11 @@
 
 			<!-- Timeline -->
 			<section class="centro timeline">
-				<!-- Obs: deixar uma mensagem pro usuario explicando um pouco do site -->
+
+
 				<?php if ((isset($_GET['cadastro'])) && $_GET['cadastro'] == 'true') { ?>
-					<div class="mt-2 alert alert-primary alert-dismissible fade show" role="alert">
+
+					<div class="mt-2 alert alert-primary alert-dismissible fade show" role="alert" style="transition: all 0.5s;">
 						<span>
 							<strong>Seja bem-vindo ao Twitter!</strong> Espero que aproveite ao máximo sua experiência. <br>
 							<strong>Um pouco sobre nos:</strong> <br>
@@ -174,12 +178,29 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
+
 				<?php } ?>
+
+				<?php if ((isset($_GET['edit_profile'])) && $_GET['edit_profile'] == 'success') { ?>
+
+					<div class="mt-2 alert alert-success alert-dismissible fade show" role="alert" style="transition: all 0.5s;">
+						<span>
+							<strong>Perfil</strong> atualizado com sucesso. <br>	
+						</span>
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+
+				<?php } ?>
+
 				<div class="row m-2">
 					<div class="col tweetBox">
-						<h1 class="tit_Tweet">Página inicial <span class="icon text-dark">
+						<h1 class="tit_Tweet">Página inicial
+							<span class="icon text-dark">
 								<ion-icon name="sparkles-outline"></ion-icon>
-							</span></h1>
+							</span>
+						</h1>
 						<div class="row">
 							<div class="col-2" style="min-width: 60px;">
 								<div class="profile">
@@ -225,6 +246,9 @@
 						</div>
 					</div>
 				</div>
+
+
+
 				<?php if ((isset($_GET['excluir'])) && $_GET['excluir'] == 'success') { ?>
 					<div class="alert alert-success alert-dismissible fade show" role="alert">
 						<strong>Publição removida!</strong> O tweet foi removido com sucesso.
@@ -241,10 +265,11 @@
 						</button>
 					</div>
 				<?php } ?>
+
 				<?php foreach ($this->view->tweets as $key => $value) { ?>
 					<!-- Tweets -->
-					<div class="row tweet">
-						<div class="col-2" style="min-width: 60px;">
+					<div class="tweet">
+						<div class="img-perfil" style="min-width: 60px;">
 							<div class="profile">
 								<div class="imgBx"><?php if ($value['foto_perfil'] != '') { ?><img src="uploads/<?= $value['foto_perfil'] ?>" alt="">
 									<?php } else { ?>
@@ -253,40 +278,46 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-10 mb-2">
+						<div class="publicacao mb-2">
 							<p class="mt-2">
 								<strong><?= $value['nome'] ?></strong>
 								<small>
-									<span class="text text-muted">- <?= $value['data'] ?></span></small><?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
-							<form class="botao-excluir-tweet" action="/excluir_tweets" method="get">
-								<div class="col d-flex justify-content-end">
-									<span>
-										<button id="excluirTweet" class="icon" name="id_do_tweet" value="<?= $value['id'] ?>" type="submit">
-											<ion-icon name="close-outline"></ion-icon>
+									<span class="text text-muted">- <?= $value['data'] ?></span></small>
+								<?php if ($value['id_usuario'] == $_SESSION['id']) { ?>
+
+								<?php } ?>
+							</p>
+							<p><?= $value['tweet'] ?></p>
+							<br />
+							<div class="d-flex mt-2">
+								<div class="funcionalidades">
+									<span class="icon azul">
+										<ion-icon name="chatbubble-outline"></ion-icon>
+									</span>
+									<span class="icon verde">
+										<ion-icon name="repeat-outline"></ion-icon>
+									</span>
+									<span class="icon vermelho">
+										<ion-icon name="heart-outline"></ion-icon>
+									</span>
+									<span class="icon azul">
+										<ion-icon name="share-outline"></ion-icon>
 									</span>
 								</div>
-							</form>
-						<?php } ?>
-						</p>
-						<p><?= $value['tweet'] ?></p>
-						<br />
-						<div class="d-flex mt-2">
-							<div class="funcionalidades">
-								<span class="icon azul">
-									<ion-icon name="chatbubble-outline"></ion-icon>
-								</span>
-								<span class="icon verde">
-									<ion-icon name="repeat-outline"></ion-icon>
-								</span>
-								<span class="icon vermelho">
-									<ion-icon name="heart-outline"></ion-icon>
-								</span>
-								<span class="icon azul">
-									<ion-icon name="share-outline"></ion-icon>
+							</div>
+
+
+
+						</div>
+
+						<form class="botao-excluir-tweet" action="/excluir_tweets" method="get">
+							<div class="col d-flex justify-content-end">
+								<span>
+									<button id="excluirTweet" class="icon" name="id_do_tweet" value="<?= $value['id'] ?>" type="submit">
+										<ion-icon name="close-outline"></ion-icon>
 								</span>
 							</div>
-						</div>
-						</div>
+						</form>
 					</div>
 				<?php } ?>
 				<nav class="mt-3" aria-label="Navegação de página exemplo">
@@ -346,59 +377,14 @@
 				</div>
 			</section>
 
-			<div class="hamburguer">
-				<button class="toggle-search">
-					<span class="icon">
-						<ion-icon name="albums-outline"></ion-icon>
-					</span>
-				</button>
-				<section class="direito-hamburguer">
-					<div class="container-lateral-dir">
-						<div class="busca mt-3">
-							<form class="input-group form-busca" action="/quem_seguir" method="get">
-								<div class="input-group-prepend">
-									<span class="icon-search">
-										<ion-icon name="search-outline"></ion-icon>
-									</span>
-								</div>
-								<input class="form-control" type="text" name="pesquisarPor" id="busca" placeholder="Buscar no twitter">
-							</form>
-							<div class="listando-busca d-none">
-								<div class="resultados"></div>
-							</div>
-						</div>
-						<div class="noticias">
-							<h1>O que está acontecendo</h1>
-							<div class="not">
-								<h3>Internacional . AO VIVO</h3>
-								<h2>Cúpula das Américas reúne líderes em Los Angeles até sexta-feira</h2>
-								<small>Assuntos do Momento: Biden</small>
-							</div>
-							<div class="not">
-								<h2>Política · Assunto do Momento</h2>
-								<p>Brazilians</p>
-								<small>2.187 Tweets</small>
-							</div>
-							<div class="not">
-								<h2>Guerra na Ucrânia · AO VIVO</h2>
-								<p>As últimas informações sobre a guerra na Ucrânia</p>
-							</div>
-							<a class="mais" href="#">
-								Mostrar mais
-							</a>
-						</div>
-						<div class="rodape">
-							<a href="#">Termos de Serviço</a>
-							<a href="">Política de Privacidade</a>
-							<a href="">Política de cookies</a>
-							<a href="">Acessibilidade</a>
-							<a href="">Informações de anúncios</a>
-							<a href="">Mais...</a> <br>
-							<span>© 2022 Twitter, Inc.</span>
-						</div>
-					</div>
-				</section>
-			</div>
+			<!-- Botao Responsivo aba de busca -->
+			<button class="toggle-search">
+				<span class="icon">
+					<ion-icon name="albums-outline"></ion-icon>
+				</span>
+			</button>
+
+
 
 		</div>
 	</section>

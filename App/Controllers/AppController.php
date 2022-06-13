@@ -176,6 +176,27 @@ class AppController extends Action {
             }
         }
     }
+
+    public function editar_perfil() {
+        echo '<pre>';
+        print_r($_POST);
+        echo '<pre>';
+
+        $this->validarAuth();
+
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id' , $_SESSION['id']);
+        $usuario->__set('nome' , $_POST['nome']);
+        $usuario->__set('email' , $_POST['email']);
+
+        $retorno = $usuario->editar_perfil();
+
+        if($retorno) {
+            header('Location: /timeline?edit_profile=success');
+        } else {
+            header('Location: /timeline?edit_profile=erro');
+        }
+    }
 }
 
 ?>

@@ -1,0 +1,163 @@
+/* Timeline */
+
+.timeline {
+    min-width: 200px;
+    border: 1px solid #e6ecf0;
+}
+
+.timeline .profile {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.timeline .profile .imgBx {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.timeline .profile .imgBx img {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.tweet {
+    display: grid;
+    grid-template-columns: 15% auto 10%;
+    margin: 0;
+    padding:15px;
+    border-bottom: 1px solid #e6ecf0;
+    border-top: 1px solid #e6ecf0;
+    cursor: pointer;
+}
+
+.tweet:hover {
+    background-color: #f5f8fa;
+}
+
+.container-responsive {    
+    display: grid;
+    grid-template-columns: auto 10%;
+
+}
+
+#textareaTweet {
+    min-height: 65px;
+    margin-top: 15px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e6ecf0;
+    overflow-y: hidden;
+}
+
+#textareaTweet::-webkit-input-placeholder{
+    font-size: 1.3em;
+    font-weight: 500;
+}
+#textareaTweet::-moz-placeholder {
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.timeline .tit_Tweet {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.timeline .tit_Tweet span {
+    margin-left: auto;
+    /*  */
+}
+
+.timeline .icon {
+    font-size: 1.2em;
+    color: rgb(29, 155, 240);
+    padding: 7px 3px 6px 9px;
+}
+
+.timeline .icon:hover {
+    background-color: #E8F5FD;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.success-cadastro {
+    position: absolute;
+    z-index: 9999;
+    padding: 25px;
+    margin: 20px;
+}
+
+.container-menu {
+    display: grid;
+    justify-content: end;
+    padding-right: 5px;
+}
+
+.botao-tweetar {
+    margin-left: auto;
+    background: #1A8CD8;
+    border-radius: 50px;
+    padding: 7px 25px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8em;
+    max-height: 35px;
+}
+
+.funcionalidades {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.funcionalidades .icon {
+    padding: 10px 8px 9px 10px;
+    color: rgb(83, 100, 113);
+}
+
+.funcionalidades .icon.verde:hover {
+    background-color: #DEF1EB;
+    color: green;
+}
+
+.funcionalidades .icon.vermelho:hover {
+    background-color: #F7E0EB;
+    color: red;
+}
+
+.funcionalidades .icon.azul:hover {
+    color: #1A8CD8;
+}
+
+#excluirTweet {
+    position: absolute;
+    margin: 5px;
+    right: 0;
+    padding: 9px 7px 8px 8px;
+    border: none;
+    border-radius: 15px;
+    color: #000;
+}
+
+#excluirTweet:hover {
+    color: #1A8CD8;
+}
+
+.botao-excluir-tweet {
+    margin: 5px;
+}
