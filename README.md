@@ -45,6 +45,6 @@ Utilizei <strong>PHP</strong> com Estrutura <strong>MVC</strong> , foi adicionad
  
  <strong>CREDITOS</strong>
  
- Made with ♥ by Claudio Anjos :wave: [Visite meu Linkedin!](www.linkedin.com/in/claudioanjoss)
+ Made with ♥ by Claudio Anjos :wave: [Visite meu Linkedin!](https://www.linkedin.com/in/claudioanjoss/)
  
  </div>
