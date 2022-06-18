@@ -73,6 +73,16 @@ body {
     .container-inscreverse {
         margin: auto;
     }
+
+    .container__login {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .container__sin-in {
+        text-align: center;
+        margin: auto;
+    }
 }
 
 @media (max-width: 850px)
@@ -85,7 +95,10 @@ body {
 @media (max-width: 550px)
 {
     .container-page {
-        grid-template-columns: 20% auto 5%;
+        grid-template-columns: 18% auto 12%;
+    }
+    .container {
+        padding: 0;
     }
 
     .tweet {
@@ -94,6 +107,10 @@ body {
 
     .title {
         font-size: 2em;
+    }
+
+    .login {
+        font-size: 0.8em;
     }
 }
 

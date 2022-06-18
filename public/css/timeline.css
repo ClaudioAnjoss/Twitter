@@ -36,7 +36,7 @@
 
 .tweet {
     display: grid;
-    grid-template-columns: 15% auto 10%;
+    grid-template-columns: 18% auto 10%;
     margin: 0;
     padding:15px;
     border-bottom: 1px solid #e6ecf0;
