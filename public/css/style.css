@@ -29,9 +29,28 @@ body {
 
 .container-page {
     display: grid;
-    grid-template-columns: 25% auto 25%;
-    overflow: hidden;
+    grid-template-columns: 270px auto 350px;
+    grid-template-areas: 'MENU SECTION ASIDE';
+    border: 1px solid green;
 
+}
+
+.esquerdo {
+    background-color: red;
+    grid-area: MENU;
+}
+
+.timeline {
+    background-color: blue;
+    min-height: 100px;
+    grid-area: SECTION;
+    width: 100%;
+}
+
+.direito {
+    background-color: aquamarine;
+    grid-area: ASIDE;
+    
 }
 
 /* Media Queries */
