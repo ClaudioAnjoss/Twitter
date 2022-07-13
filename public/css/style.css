@@ -32,6 +32,7 @@ body {
     grid-template-columns: 270px auto 350px;
     grid-template-areas: 'MENU SECTION ASIDE';
     border: 1px solid green;
+    justify-content: center;
 
 }
 
@@ -41,10 +42,8 @@ body {
 }
 
 .timeline {
-    background-color: blue;
-    min-height: 100px;
     grid-area: SECTION;
-    width: 100%;
+    width: max-content;
 }
 
 .direito {

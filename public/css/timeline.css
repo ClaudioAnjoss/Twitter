@@ -1,6 +1,239 @@
 /* Timeline */
 
-.timeline {
+.tweet {
+    max-width: 598px;
+
+    display: grid;
+    grid-template-areas: 'PF TW';
+
+    padding: 12px 16px;
+}
+
+.content_newTweet {
+    max-width: 598px;
+    display: flex;
+    flex-direction: column;
+    padding: 4px 16px;
+}
+
+.content_newTweet .initial {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content_newTweet .initial h1 {
+    font-size: 20px;
+}
+
+.content_newTweet .initial span {
+    width: 20px;
+    height: 20px;
+}
+
+.content_newTweet .newTweet {
+    display: flex;
+}
+
+.content_newTweet .newTweet .profile {
+    width: 48px;
+
+    margin-right: 12px;
+    padding-top: 4px;
+}
+
+.content_newTweet .newTweet .profile .imgBx {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.content_newTweet .newTweet .profile .imgBx img {
+    width: 48px;
+    height: 48px;
+
+
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.content_newTweet .newTweet form {
+    width: 100%;
+    height: 100%;
+    padding: 12px 0;
+}
+
+.content_newTweet .newTweet form textarea {
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+    resize: none;
+    border: none;
+}
+
+.content_newTweet .newTweet form textarea::placeholder {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.content_newTweet .content_widgets-submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 60px;
+}
+
+.content_newTweet .content_widgets-submit .funcionalidades_tweet {
+    display: flex;
+    align-items: center;
+}
+
+.content_newTweet .content_widgets-submit .funcionalidades_tweet .icon {
+    width: 34px;
+    height: 34px;
+    
+    margin-right: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.content_newTweet .content_widgets-submit .funcionalidades_tweet .icon svg {
+    width: 20px;
+    height: 20px;
+    
+    fill: #1d9bf0;
+}
+
+.content_newTweet .content_widgets-submit .funcionalidades_tweet .icon:hover {
+    background-color: #1d9cf046;
+}
+
+
+
+
+
+
+
+
+.tweet .profile {
+    grid-area: PF;
+    width: 48px;
+
+    margin-right: 12px;
+    padding-top: 4px;
+}
+
+.tweet .profile .imgBx {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.tweet .profile .imgBx img {
+    width: 48px;
+    height: 48px;
+
+
+    flex-shrink: 0;
+    object-fit: cover;
+    /* height: 100%; */
+}
+
+.tweet .publicacao {
+    grid-area: TW;
+    width: 506px;
+    height: max-content;
+    
+    display: grid;
+    grid-template-areas: 
+    'INFO CLOSE'
+    'TWEET TWEET'
+    'BUTTONS BUTTONS';
+    grid-template-rows: 20px auto 32px;
+    grid-template-columns: 1fr 30px;
+}
+
+
+.tweet .publicacao .info-user {
+    grid-area: INFO;
+    font-size: 15px;
+    min-width: 100%;
+    
+    display: flex;
+    align-items: center;
+    grid-column: auto;
+}
+.tweet .publicacao .info-user strong {
+    margin-right: 4px;
+}
+
+.tweet .publicacao .close {
+    width: 19px; 
+    height: 19px;
+    font-size: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 35px;
+
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #000;
+    transition: .4s;
+}
+
+.tweet .publicacao .close:hover {
+    background-color: #b4b4b4;
+}
+
+.tweet .publicacao .public {
+    grid-area: TWEET;
+}
+
+
+.tweet .publicacao .tweet_button {
+    grid-area: BUTTONS;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    height: 100%;
+} 
+
+.tweet .publicacao .tweet_button svg{
+    width: 19px;
+    height: 19px;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .timeline {
     min-width: 200px;
     border: 1px solid #e6ecf0;
 }
@@ -74,7 +307,7 @@
 
 .timeline .tit_Tweet span {
     margin-left: auto;
-    /*  */
+    /*  
 }
 
 .timeline .icon {
@@ -154,4 +387,4 @@
 
 .botao-excluir-tweet {
     margin: 5px;
-}
+} */
