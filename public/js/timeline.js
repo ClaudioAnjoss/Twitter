@@ -1,27 +1,48 @@
+$(document).ready(() => {
+    $('.toggledOn').click(() => {
+        $('.timeline').toggle('slow')
+        $('.direito').toggle('slow')
+    })
+})
+
 function esconder_menu() {
-    const largura_tela = window.innerWidth;
-    if (largura_tela <= 991) {
-        $('.navigation').addClass('show');
-        // $('#container-central').removeClass('container');
-        $('.direito').hide();
-        $('.esquerdo.text').hide()
-        $('.toggle-search').show('slow');
-        
-        if ($('.toggle-search').hasClass('active')) {
-            $('.direito').show();
-        } else {
-            $('.direito').hide();
+        const largura_tela = window.innerWidth;
+
+        if (largura_tela >= 991) {
+            $('.timeline').show('slow')
+            $('.direito').show('slow')  
+        } else if(largura_tela <= 991) {
+            $('.direito').hide() 
+            $('.timeline').show('slow')  
         }
-        
-    } else {
-        $('.navigation').removeClass('show');
-        // $('#container-central').addClass('container');
-        $('.direito').show();
-        $('.toggle-search').hide()
-        $('.centro').show('slow');
-        $('.toggle-search').removeClass('active');        
     }
-}
+
+
+
+// function esconder_menu() {
+//     const largura_tela = window.innerWidth;
+//     if (largura_tela <= 991) {
+//         $('.navigation').addClass('show');
+//         // $('#container-central').removeClass('container');
+//         $('.direito').hide();
+//         $('.esquerdo.text').hide()
+//         $('.toggle-search').show('slow');
+        
+//         if ($('.toggle-search').hasClass('active')) {
+//             $('.direito').show();
+//         } else {
+//             $('.direito').hide();
+//         }
+        
+//     } else {
+//         $('.navigation').removeClass('show');
+//         // $('#container-central').addClass('container');
+//         $('.direito').show();
+//         $('.toggle-search').hide()
+//         $('.centro').show('slow');
+//         $('.toggle-search').removeClass('active');        
+//     }
+// }
 $(document).ready(function () {
     $('.form-busca').focusin(() => {
         $('.busca').addClass('active');

@@ -39,7 +39,8 @@
     height: 10px;
     background-color: rgb(29, 155, 240);
     position: absolute;
-    right: 0;
+    right: -5%;
+    top: -18%;
     border-radius: 50%;
 }
 
@@ -59,12 +60,16 @@
     border-radius: 30px;   
 }
 
+.navigation .menu .toggledOn {
+    display: none;
+}
+
 .navigation .menu li a:hover {
     background-color: rgba(15, 20, 25, 0.1);
 }
 
-.navigation .menu li button {
-    width: 100%;
+.navigation .menu li .tweetar {
+    width: 225px;
     height: 52px;
 
     display: block;
@@ -76,6 +81,9 @@
     color: #fff;
     font-weight: 500;
     border-radius: 30px;
+}
+.navigation .menu li .tweetar .svgButton {
+    display: none;
 }
 
 .navigation .menu li a .text {
@@ -136,4 +144,54 @@
     color: #000;
 
     border: 1px solid gray;
+}
+
+@media (max-width:1275px) {
+    .navigation .menu {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigation .menu li a .text {
+        display: none;
+    }
+
+    .navigation .menu li .tweetar {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 50%;
+        padding: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigation .menu li .tweetar .textButton {
+        display: none;
+    }
+
+    .navigation .menu li .tweetar .svgButton {
+        width: 30px;
+        height: 26px;
+
+        display: block;
+        fill: #fff;
+
+    }
+
+    .navigation .profile .userInfo {
+        display: none;
+    }
+}
+
+@media (max-width:991px) {
+    .navigation .menu .toggledOff {
+        display: none;
+    }
+
+    .navigation .menu .toggledOn {
+        display: block;
+    }
 }

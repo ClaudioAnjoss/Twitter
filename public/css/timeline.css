@@ -7,6 +7,13 @@
     grid-template-areas: 'PF TW';
 
     padding: 12px 16px;
+    border-bottom: 1px solid #f7f9f9;
+    border-top: 1px solid #f7f9f9;
+    cursor: pointer;
+}
+
+.tweet:hover {
+    background-color: #00000008;
 }
 
 .content_newTweet {
@@ -117,12 +124,22 @@
     background-color: #1d9cf046;
 }
 
+.content_newTweet .content_widgets-submit label {
+    width: 90px;
+    height: 36px;
+    font-size: 15px;
+    font-weight: 700;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-
-
-
-
+    background-color: #1d9bf0;
+    color: #fff;
+    padding: 0 16px;
+    border-radius: 30px;
+    
+}
 
 .tweet .profile {
     grid-area: PF;
@@ -218,173 +235,54 @@
     height: 19px;
 } 
 
+@media (max-width:686px) {
+    .tweet, .direito {
+        width: 550px;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .timeline {
-    min-width: 200px;
-    border: 1px solid #e6ecf0;
+    /* .content_newTweet {
+        max-width: 598px;
+    } */
+    .tweet .publicacao {
+        width: 100%;        
+    }
 }
 
-.timeline .profile {
-    position: relative;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin: 10px 0;
-    cursor: pointer;
-    min-width: 60px;
+@media (max-width:650px) {
+    .tweet, .direito {
+        width: 500px;
+    }
 }
 
-.timeline .profile .imgBx {
-    width: 60px;
-    height: 60px;
-    overflow: hidden;
-    border-radius: 50%;
+@media (max-width:600px) {
+    .tweet, .direito {
+        width: 400px;
+    }
+
+    .content_newTweet .content_widgets-submit .funcionalidades_tweet {
+        display: none;
+    }
+    .content_newTweet .content_widgets-submit {
+        justify-content: end;
+    }
 }
 
-.timeline .profile .imgBx img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+@media (max-width:500px) {
+    .tweet, .direito {
+        width: 300px;
+    }
 
-.tweet {
-    display: grid;
-    grid-template-columns: 18% auto 10%;
-    margin: 0;
-    padding:15px;
-    border-bottom: 1px solid #e6ecf0;
-    border-top: 1px solid #e6ecf0;
-    cursor: pointer;
-}
+    .content_newTweet .content_widgets-submit .funcionalidades_tweet {
+        display: none;
+    }
 
-.tweet:hover {
-    background-color: #f5f8fa;
-}
+    .tweet .publicacao .info-user span {
+        display: none;
+    }
 
-.container-responsive {    
-    display: grid;
-    grid-template-columns: auto 10%;
+    .content_newTweet .newTweet form textarea::placeholder {
+        font-size: 15px;
+    }
 
+    
 }
-
-#textareaTweet {
-    min-height: 65px;
-    margin-top: 15px;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #e6ecf0;
-    overflow-y: hidden;
-}
-
-#textareaTweet::-webkit-input-placeholder{
-    font-size: 1.3em;
-    font-weight: 500;
-}
-#textareaTweet::-moz-placeholder {
-    font-size: 1.3em;
-    font-weight: 500;
-}
-
-.timeline .tit_Tweet {
-    font-size: 1.2em;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.timeline .tit_Tweet span {
-    margin-left: auto;
-    /*  
-}
-
-.timeline .icon {
-    font-size: 1.2em;
-    color: rgb(29, 155, 240);
-    padding: 7px 3px 6px 9px;
-}
-
-.timeline .icon:hover {
-    background-color: #E8F5FD;
-    border-radius: 50px;
-    cursor: pointer;
-}
-
-.success-cadastro {
-    position: absolute;
-    z-index: 9999;
-    padding: 25px;
-    margin: 20px;
-}
-
-.container-menu {
-    display: grid;
-    justify-content: end;
-    padding-right: 5px;
-}
-
-.botao-tweetar {
-    margin-left: auto;
-    background: #1A8CD8;
-    border-radius: 50px;
-    padding: 7px 25px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 0.8em;
-    max-height: 35px;
-}
-
-.funcionalidades {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.funcionalidades .icon {
-    padding: 10px 8px 9px 10px;
-    color: rgb(83, 100, 113);
-}
-
-.funcionalidades .icon.verde:hover {
-    background-color: #DEF1EB;
-    color: green;
-}
-
-.funcionalidades .icon.vermelho:hover {
-    background-color: #F7E0EB;
-    color: red;
-}
-
-.funcionalidades .icon.azul:hover {
-    color: #1A8CD8;
-}
-
-#excluirTweet {
-    position: absolute;
-    margin: 5px;
-    right: 0;
-    padding: 9px 7px 8px 8px;
-    border: none;
-    border-radius: 15px;
-    color: #000;
-}
-
-#excluirTweet:hover {
-    color: #1A8CD8;
-}
-
-.botao-excluir-tweet {
-    margin: 5px;
-} */

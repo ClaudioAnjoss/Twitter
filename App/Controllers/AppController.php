@@ -16,7 +16,7 @@ class AppController extends Action {
         $tweet = Container::getModel('Tweet');
         $tweet->__set('id_usuario' , $_SESSION['id']);
 
-        $limite = 10;
+        $limite = 30;
         $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 1;
         $deslocamento = ($pagina -1) * $limite;
 
