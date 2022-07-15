@@ -100,6 +100,17 @@
     margin: 12px;
 }
 
+#toggleLogout {
+    color: gray;
+    transition: 0.3s;
+    align-items: center;
+    width: max-content;
+    padding: 2px 5px;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    display: none;
+}
+
 .navigation .profile:hover {
     background-color: rgba(15, 20, 25, 0.1);
 }
@@ -183,6 +194,14 @@
 
     .navigation .profile .userInfo {
         display: none;
+    }
+
+    .navigation .profile {
+        flex-direction: column;
+    }
+
+    #toggleLogout {
+        display: flex;
     }
 }
 

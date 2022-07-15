@@ -196,6 +196,11 @@
     margin-right: 4px;
 }
 
+.tweet .publicacao .info-user span {
+    font-size: 12px;
+    color: #536471;
+}
+
 .tweet .publicacao .close {
     width: 19px; 
     height: 19px;

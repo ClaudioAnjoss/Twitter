@@ -1,4 +1,39 @@
-.bg {
+#container__login {
+    display: flex;
+}
+
+#container__login .bgLogin {
+    width: 895px;
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: url(../img/lohp_1302x955.png) no-repeat center center;
+}
+
+#container__login .bgLogin svg {
+    width: 360px;
+    height: 293px;
+}
+
+#container__login .container__registrer {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 24px;
+}
+
+#container__login .container__registrer img {
+    width: 43px;
+    height: 35px;
+}
+
+/* .bg {
     background: #999999;
     height: 100vh;
     display: flex;
@@ -159,5 +194,5 @@ h2 {
 	background-color: #fff;
     border: 1px solid #e6ecf0;
     border-radius: 3px;
-}
+} */
 

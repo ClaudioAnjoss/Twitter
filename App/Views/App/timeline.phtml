@@ -1,5 +1,5 @@
 <body onload="esconder_menu()" onresize="esconder_menu()" style="min-width: 376px;">
-	<!-- <section class="container-editar-perfil">
+	<section class="container-editar-perfil">
 		<div class="editar-perfil">
 			<div class="close"><a id="close-edit-profle" href="#">
 					<ion-icon name="close-outline"></ion-icon>
@@ -44,7 +44,7 @@
 				<button class="botao-salvar" type="submit">Salvar</button>
 			</form>
 		</div>
-	</section> -->
+	</section>
 
 	<!-- Alertas -->
 	<section class="alerts">
@@ -91,7 +91,7 @@
 		<?php } ?>
 	</section>
 
-	<div class="container-page">
+	<section class="container-page">
 		<!-- Menu lateral -->
 		<section class="navigation">
 			<ul class="menu">
@@ -243,7 +243,14 @@
 						<span class="icone-sair">Sair</span>
 					</a>
 				</div>
+				<a id="toggleLogout" href="/sair">
+				<span style="font-size: 1.5em;">
+					<ion-icon name="log-out-outline"></ion-icon>
+				</span>
+				<span class="icone-sair">Sair</span>
+			</a>
 			</div>
+			
 		</section>
 
 		<!-- Timeline -->
@@ -453,7 +460,7 @@
 				<span>© 2022 Twitter, Inc.</span>
 			</div>
 		</section>
-	</div>
+	</section>
 
 	<script src="js/timeline.js"></script>
 </body>
