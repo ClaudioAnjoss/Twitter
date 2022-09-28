@@ -1,0 +1,65 @@
+#cadastro {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background-color: #eeeeee;
+}
+
+.container_login {
+    min-width: 320px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #fff;
+    border: 1px solid gainsboro;
+    border-radius: 15px;
+    padding: 2% 5%;
+}
+
+.container_login #google_apple {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_login #google_apple button {
+    width: 300px;
+    height: 40px;
+
+    background: #fff;
+    border: 1px solid rgb(207, 217, 222);
+    border-radius: 25px;
+    margin-bottom: 8px;
+
+    color: #000;
+    font-weight: 700;
+}
+
+.container_login .ou {
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 8px;
+
+    border-bottom: 1px solid rgb(207, 217, 222);
+}
+
+.container_login .ou span {
+    position: absolute;
+    top: -14px;
+    background: #fff;
+
+    padding: 0 4px;
+}
