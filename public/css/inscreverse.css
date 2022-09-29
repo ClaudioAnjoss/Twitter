@@ -1,0 +1,66 @@
+.container_inscreverse {
+    min-width: 320px;
+    max-width: 520px;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    background-color: #fff;
+    border: 1px solid gainsboro;
+    border-radius: 15px;
+    padding: 60px 5%;
+}
+
+.container_inscreverse .button-close {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+.container_inscreverse #google_apple {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_inscreverse #google_apple button {
+    width: 300px;
+    height: 40px;
+
+    background: #fff;
+    border: 1px solid rgb(207, 217, 222);
+    border-radius: 25px;
+    margin-bottom: 8px;
+
+    color: #000;
+    font-weight: 700;
+}
+
+.container_inscreverse .ou {
+    width: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 8px;
+
+    border-bottom: 1px solid rgb(207, 217, 222);
+}
+
+.container_inscreverse .ou span {
+    position: absolute;
+    top: -14px;
+    background: #fff;
+
+    padding: 0 4px;
+}
+
+.container_inscreverse .formulario input {
+    margin: 8px;
+}

@@ -1,6 +1,6 @@
 <body id="cadastro" class="bg">
 
-  <div>
+  <div class="container_inscreverse">
 
     <a class="button-close" href="/"><svg fill="#000" style="width: 20px;" viewBox="0 0 24 24" aria-hidden="true" class="r-18jsvk2 r-4qtqp9 r-yyyyoo r-z80fyv r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-19wmn03">
         <g>
@@ -42,16 +42,7 @@
 
       <input id="senha" name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Senha">
 
-      <span class="input-group-text"><i class="fas fa-check"></i></span>
-
-
       <input id="confirm-senha" name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Confirme a senha">
-
-
-      <span class="input-group-text"><i class="fas fa-check"></i></span>
-
-
-
 
       <?php if (isset($_GET['usuario_existe'])) { ?>
         <small class="lead text-danger">Usuario já Existe, tente utilizar outro e-mail</small>
@@ -66,18 +57,12 @@
           Ao inscrever-se, você concorda com os Termos de Serviço e com as Políticas de Privacidade, incluindo o Uso de Cookies. Outras pessoas poderão encontrar você pelo e-mail ou número de telefone fornecido · Opções de Privacidade
         </small>
       </div>
-      <button style="background: #007bff; color: #fff;" type="submit" class="btn btn-primary btn-block">Inscrever-se</button>
+
+      <button type="submit" class="btn btn-primary btn-block">Inscrever-se</button>
 
       <div class="mt-4 mb-4">
         <span>Já tem uma conta? <a href="/entrar">Entrar</a></span>
       </div>
-
-
-
-
-
-
-
 
     </form>
 
@@ -97,28 +82,13 @@
         }
       });
 
-
       $("#confirm-senha").keyup(() => {
         if ($("#senha").val().length >= 8 && $("#senha").val() == $("#confirm-senha").val()) {
-          $("#senha").css("border-right", "none");
-          $("#verify-senha").removeClass("d-none");
           $("#confirm-senha").css("background", "none");
-          $("#confirm-senha").css("border-right", "none");
-          $("#verify").removeClass("d-none");
         } else {
           $("#confirm-senha").css("background", "#c50c0c38");
-
-          if ($("#senha").val() != $("#confirm-senha").val()) {
-            $("#verify").addClass("d-none");
-            $("#verify-senha").addClass("d-none");
-
-          }
-
         }
       });
-
-
-
     });
   </script>
 </body>
