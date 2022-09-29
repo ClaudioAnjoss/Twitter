@@ -12,51 +12,44 @@
 
     <h2 style="font-size: 2em;" class="text-center">Inscrever-se no Twitter</h2>
 
+    <div id="google_apple">
+      <button href="" disabled>
+        <div class="login"><svg style="width: 20px;" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c">
+            <g>
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+              <path fill="none" d="M0 0h48v48H0z"></path>
+            </g>
+          </svg> Inscrever-se com Google
+        </div>
+      </button>
+      <button href="" disabled>
+        <div class="login"><i style="font-size: 1.5em;" class="fab fa-apple"></i> Inscrever-se com Apple
+        </div>
+      </button>
+    </div>
+
+    <p class="ou"><span>ou</span></p>
 
 
     <form class="formulario" action="/registrar" method="post">
 
-      <div id="google_apple">
-        <button href="" disabled>
-          <div class="login"><svg style="width: 20px;" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c">
-              <g>
-                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
-                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
-                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
-                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
-                <path fill="none" d="M0 0h48v48H0z"></path>
-              </g>
-            </svg> Inscrever-se com Google
-          </div>
-        </button>
-        <button href="" disabled>
-          <div class="login"><i style="font-size: 1.5em;" class="fab fa-apple"></i> Inscrever-se com Apple
-          </div>
-        </button>
-      </div>
-      <p class="ou"><span>ou</span></p>
+      <input name="nome" value="<?= $this->view->valueCampos['nome']  ?>" type="text" class="form-control" placeholder="Nome">
 
-      <div class="form-group">
-        <input name="nome" value="<?= $this->view->valueCampos['nome']  ?>" type="text" class="form-control" placeholder="Nome">
-      </div>
+      <input name="email" value="<?= $this->view->valueCampos['email']  ?>" type="text" class="form-control" placeholder="E-mail">
 
-      <div class="form-group">
-        <input name="email" value="<?= $this->view->valueCampos['email']  ?>" type="text" class="form-control" placeholder="E-mail">
-      </div>
+      <input id="senha" name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Senha">
 
-      <div class="form-group input-group">
-        <input id="senha" name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Senha">
-        <div id="verify-senha" class="input-group-append d-none">
-          <span class="input-group-text"><i class="fas fa-check"></i></span>
-        </div>
-      </div>
+      <span class="input-group-text"><i class="fas fa-check"></i></span>
 
-      <div class="form-group input-group">
-        <input id="confirm-senha" name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Confirme a senha">
-        <div id="verify" class="input-group-append d-none">
-          <span class="input-group-text"><i class="fas fa-check"></i></span>
-        </div>
-      </div>
+
+      <input id="confirm-senha" name="senha" value="<?= $this->view->valueCampos['senha']  ?>" type="password" class="form-control" placeholder="Confirme a senha">
+
+
+      <span class="input-group-text"><i class="fas fa-check"></i></span>
+
 
 
 
@@ -87,9 +80,6 @@
 
 
     </form>
-
-
-
 
   </div>
 
